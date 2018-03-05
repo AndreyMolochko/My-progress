@@ -32,7 +32,8 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+//git remote add origin https://github.com/AndreyMolochko/My-progress.git
+//git push -u origin master
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     /*TextView tvEnabledGPS;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity
     FragmentTransaction fragmentTransaction;
     FragmentFreeRunning fragmentFreeRunning;
     FragmentSetDistance fragmentSetDistance;
+    FragmentSport fragmentSport;
+    FragmentCalculator fragmentCalculator;
     Boolean beginRunning;
 
 
@@ -104,6 +107,8 @@ public class MainActivity extends AppCompatActivity
         fragmentChooseRun = new FragmentChooseRun();
         fragmentFreeRunning = new FragmentFreeRunning();
         fragmentSetDistance = new FragmentSetDistance();
+        fragmentSport = new FragmentSport();
+        fragmentCalculator = new FragmentCalculator();
     }
 
     @Override
@@ -146,7 +151,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         fragmentTransaction=getFragmentManager().beginTransaction();
         if (id == R.id.nav_sport) {
-            fragmentTransaction.add(R.id.layoutSportFrag,fragmentChooseRun);
+            fragmentTransaction.add(R.id.layoutSportFrag,fragmentSport);
             // Handle the sport action
         } else if (id == R.id.nav_gallery) {
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
@@ -174,6 +179,12 @@ public class MainActivity extends AppCompatActivity
 
         fragmentTransaction = getFragmentManager().beginTransaction();
         switch (view.getId()){
+            case R.id.imageButtonRun:
+                fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
+                break;
+            case R.id.imageButtonCalculator:
+                fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculator);
+                break;
             case R.id.buttonSetDistance:
                 fragmentTransaction.add(R.id.layoutSportFrag,fragmentSetDistance);
                 break;

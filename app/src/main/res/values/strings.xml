@@ -17,4 +17,17 @@
     <string name="next">Next</string>
     <string name="free_running">Free running</string>
     <string name="set_distance">Set Distance</string>
+    <string name="growth">Growth:</string>
+    <string name="waist">Waist:</string>
+    <string name="neck">Neck:</string>
+    <string name="thigh">Thighs:</string>
+    <string name="show_result">Show Result</string>
+    <string name="weight">Weight:</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="weightBarbell">Weight</string>
+    <string name="reps">Reps</string>
+    <string name="set">Set</string>
+    <string name="add_set">Add set</string>
+    <string name="complete_exercise">Complete exercise</string>
+    <string name="sex">Sex:</string>
 </resources>

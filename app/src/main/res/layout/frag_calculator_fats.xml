@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="81dp">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForSex"
+        android:layout_width="360dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutForGrowth"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07999998"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="12dp">
+
+        <TextView
+            android:id="@+id/textViewForSex"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/sex"
+            android:textSize="32sp"
+            tools:layout_editor_absoluteX="200dp"
+            tools:layout_editor_absoluteY="30dp" />
+
+        <Spinner
+            android:id="@+id/spinnerForSex"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="181dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForGrowth"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutForWeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutForSex"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewForGrowth"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:labelFor="@id/editTextForGrowth"
+            android:text="@string/growth"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/editTextForGrowth"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForWeight"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutForWaist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutForGrowth"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewForWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:labelFor="@id/editTextForWeight"
+            android:text="@string/weight"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/editTextForWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForWaist"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutForNeck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutForWeight"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewForWaist"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:labelFor="@id/editTextForWaist"
+            android:text="@string/waist"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/editTextForWaist"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForNeck"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutForThigh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutForWaist"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewForNeck"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:labelFor="@id/editTextForNeck"
+            android:text="@string/neck"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/editTextForNeck"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutForThigh"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonForShowingResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutForNeck"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewForThigh"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:labelFor="@id/editTextForThigh"
+            android:text="@string/thigh"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/editTextForThigh"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonForShowingResult"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:text="@string/show_result"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutForThigh"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonForShowingResult"
+        tools:ignore="MissingConstraints" />
+
+
+</android.support.constraint.ConstraintLayout>
