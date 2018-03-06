@@ -186,6 +186,10 @@ public class MainActivity extends AppCompatActivity
                 Intent intentCalculator = new Intent(MainActivity.this,CalculatorFat.class);
                 startActivity(intentCalculator);
                 break;
+            case R.id.imageButtonSportDiary:
+                Intent intentDiary = new Intent(MainActivity.this,SportDiary.class);
+                startActivity(intentDiary);
+                break;
             case R.id.buttonSetDistance:
                 fragmentTransaction.add(R.id.layoutSportFrag,fragmentSetDistance);
                 break;

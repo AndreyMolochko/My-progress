@@ -30,4 +30,42 @@
     <string name="add_set">Add set</string>
     <string name="complete_exercise">Complete exercise</string>
     <string name="sex">Sex:</string>
+    <string-array name="array_exercises">
+        <item>Становая тяга</item>
+        <item>Тяга штанги в наклоне</item>
+        <item>Подтягивания</item>
+        <item>Жим штанги лёжа на горизонтальной скамье</item>
+        <item>Жим штанги лёжа на наклонной скамье</item>
+        <item>Жим лёжа гантелей на горизонтальной скамье</item>
+        <item>Жим лёжа гантелей на наклонной скамье</item>
+        <item>Отжимания</item>
+        <item>Отжимания на брусьях</item>
+        <item>Подтягивание (обратный хват)</item>
+        <item>Подъём на бицепс штанги стоя</item>
+        <item>Подъём на бицепс гантелей стоя</item>
+        <item>Подъём на бицепс гантелей сидя</item>
+        <item>"Молотки"</item>
+        <item>Подъём на бицепс штанги (обратный хват)</item>
+        <item>Жим штанги лёжа узким хватом</item>
+        <item>Французский жим</item>
+        <item>Жим армейский сидя</item>
+        <item>Жим армейски стоя</item>
+        <item>Жим армейский в Смите</item>
+        <item>Жим гантелей стоя</item>
+        <item>Жим гантелей сидя</item>
+        <item>Скручивания</item>
+        <item>Подъем ног в висе</item>
+        <item>Выпады с гантелями</item>
+        <item>Выпады с штангой</item>
+        <item>Приседания со штангой</item>
+        <item>Фронтальные приседания</item>
+        <item>Скрёстные выпады</item>
+        <item>Жим ногами</item>
+        <item>Гиперэкстензия</item>
+        <item>Тяга гантелей на наклонной скамье</item>
+        <item>Тяга гантелей на горизонтальной скамье</item>
+        <item>Подъёмы на икры</item>
+        <item>Рывок штанги</item>
+        <item>Толчок штанги</item>
+    </string-array>
 </resources>
