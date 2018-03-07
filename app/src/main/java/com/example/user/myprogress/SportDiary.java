@@ -1,5 +1,7 @@
 package com.example.user.myprogress;
 
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,23 +16,29 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 public class SportDiary extends AppCompatActivity {
-    ListView listView;
+    @BindView(R.id.listview) ListView listView;
     ArrayAdapter<String> adapter;
     ArrayList<String> arrayExercise;
+    FragmentTransaction fragmentTransaction;
+    FragmentAddExercise fragmentAddExercise;
     String Tag = "ProgresDiary";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_diary);
+        ButterKnife.bind(this);
         infromLogger("before init");
         init();
         infromLogger("Succes init");
     }
     public void init(){
-        listView = (ListView)findViewById(R.id.listview);
+        //listView = (ListView)findViewById(R.id.listview);
+        fragmentAddExercise = new FragmentAddExercise();
         arrayExercise = new ArrayList<>();
         arrayExercise.addAll(Arrays.asList(getResources().getStringArray(R.array.array_exercises)));
         infromLogger("Succes addAll");
@@ -59,6 +67,14 @@ public class SportDiary extends AppCompatActivity {
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+    @OnItemClick(R.id.listview)
+    public void onItemSelected(int position){
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentAddExercise);
+        infromLogger("Click on the element");
+        //add fragment addExercise
+        //push amount of listview
     }
     public  void infromLogger(String statement){
         if(BuildConfig.DEBUG){
