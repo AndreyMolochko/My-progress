@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity
     FragmentSetDistance fragmentSetDistance;
     FragmentSport fragmentSport;
     FragmentCalculator fragmentCalculator;
+    FragmentAddExercise fragmentAddExercise;
     Boolean beginRunning;
 
 
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity
         fragmentSetDistance = new FragmentSetDistance();
         fragmentSport = new FragmentSport();
         fragmentCalculator = new FragmentCalculator();
+        fragmentAddExercise = new FragmentAddExercise();
     }
 
     @Override
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentFreeRunning);
 
         } else if (id == R.id.nav_manage) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentSetDistance);
+            fragmentTransaction.add(R.id.layoutSportFrag,fragmentAddExercise);
 
         } else if (id == R.id.nav_share) {
 
@@ -190,6 +192,8 @@ public class MainActivity extends AppCompatActivity
                 Intent intentDiary = new Intent(MainActivity.this,SportDiary.class);
                 startActivity(intentDiary);
                 break;
+                /*fragmentTransaction.replace(R.id.layoutSportFrag,fragmentAddExercise);
+                break;*/
             case R.id.buttonSetDistance:
                 fragmentTransaction.add(R.id.layoutSportFrag,fragmentSetDistance);
                 break;

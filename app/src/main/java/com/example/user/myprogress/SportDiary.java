@@ -25,6 +25,8 @@ public class SportDiary extends AppCompatActivity {
     ArrayList<String> arrayExercise;
     FragmentTransaction fragmentTransaction;
     FragmentAddExercise fragmentAddExercise;
+    FragmentSetDistance fragmentSetDistance;
+    FragmentCalculator fragmentCalculator;
     String Tag = "ProgresDiary";
 
     @Override
@@ -39,6 +41,8 @@ public class SportDiary extends AppCompatActivity {
     public void init(){
         //listView = (ListView)findViewById(R.id.listview);
         fragmentAddExercise = new FragmentAddExercise();
+        fragmentCalculator = new FragmentCalculator();
+        fragmentSetDistance = new FragmentSetDistance();
         arrayExercise = new ArrayList<>();
         arrayExercise.addAll(Arrays.asList(getResources().getStringArray(R.array.array_exercises)));
         infromLogger("Succes addAll");
@@ -71,7 +75,10 @@ public class SportDiary extends AppCompatActivity {
     @OnItemClick(R.id.listview)
     public void onItemSelected(int position){
         fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentAddExercise);
+        fragmentTransaction.add(R.id.layoutForAddExercise,fragmentAddExercise);
+        fragmentTransaction.commit();
+        listView.setAdapter(null);
+        //listView.i
         infromLogger("Click on the element");
         //add fragment addExercise
         //push amount of listview
