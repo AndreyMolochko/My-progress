@@ -13,10 +13,13 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.myprogress.data.ExerciseContract;
 import com.example.user.myprogress.data.ExerciseDBHelper;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,15 +115,15 @@ public class SportDiary extends AppCompatActivity {
     }
     @OnItemClick(R.id.listview)
     public void onItemSelected(int position){
-        //fragmentTransaction = getFragmentManager().beginTransaction();
-        //fragmentTransaction.add(R.id.layoutForAddExercise,fragmentAddExercise);
-        //fragmentTransaction.commit();
-        //listView.setAdapter(null);
-        displayDatabaseInfo();
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.layoutForAddExercise,fragmentAddExercise);
+        //fragmentAddExercise.textViewSet.setText("hello");
+        //((TextView)fragmentAddExercise.getView().findViewById(R.id.textViewExercise)).setText("hello");
+        fragmentTransaction.commit();
+        listView.setAdapter(null);
+        //displayDatabaseInfo();
         //listView.i
         infromLogger("Click on the element");
-        //add fragment addExercise
-        //push amount of listview
     }
     public  void infromLogger(String statement){
         if(BuildConfig.DEBUG){
