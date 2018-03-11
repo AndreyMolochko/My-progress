@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -35,8 +37,6 @@ public class SportDiary extends AppCompatActivity {
     ArrayList<String> arrayExercise;
     FragmentTransaction fragmentTransaction;
     FragmentAddExercise fragmentAddExercise;
-    FragmentSetDistance fragmentSetDistance;
-    FragmentCalculator fragmentCalculator;
     String Tag = "ProgresDiary";
 
     @Override
@@ -52,8 +52,6 @@ public class SportDiary extends AppCompatActivity {
         //listView = (ListView)findViewById(R.id.listview);
         mDBHelper = new ExerciseDBHelper(this);
         fragmentAddExercise = new FragmentAddExercise();
-        fragmentCalculator = new FragmentCalculator();
-        fragmentSetDistance = new FragmentSetDistance();
         arrayExercise = new ArrayList<>();
         arrayExercise.addAll(Arrays.asList(getResources().getStringArray(R.array.array_exercises)));
         infromLogger("Succes addAll");
@@ -120,10 +118,18 @@ public class SportDiary extends AppCompatActivity {
         //fragmentAddExercise.textViewSet.setText("hello");
         //((TextView)fragmentAddExercise.getView().findViewById(R.id.textViewExercise)).setText("hello");
         fragmentTransaction.commit();
+
         listView.setAdapter(null);
         //displayDatabaseInfo();
         //listView.i
         infromLogger("Click on the element");
+    }
+    public void onClickExercise(View view){
+        switch (view.getId()){
+            case R.id.buttonAddSet : ((Button)fragmentAddExercise.getView().
+                    findViewById(R.id.buttonAddSet)).setText("sdfsdfsf");
+            break;
+        }
     }
     public  void infromLogger(String statement){
         if(BuildConfig.DEBUG){
