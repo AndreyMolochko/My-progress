@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     FragmentSport fragmentSport;
     FragmentCalculator fragmentCalculator;
     FragmentAddExercise fragmentAddExercise;
+    FragmentCalculatorBenchPress fragmentCalculatorBenchPress;
     Boolean beginRunning;
 
 
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity
         fragmentSport = new FragmentSport();
         fragmentCalculator = new FragmentCalculator();
         fragmentAddExercise = new FragmentAddExercise();
+        fragmentCalculatorBenchPress = new FragmentCalculatorBenchPress();
     }
 
     @Override
@@ -162,7 +164,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentFreeRunning);
 
         } else if (id == R.id.nav_manage) {
-            fragmentTransaction.add(R.id.layoutSportFrag,fragmentAddExercise);
+            fragmentTransaction.add(R.id.layoutSportFrag,fragmentCalculatorBenchPress);
 
         } else if (id == R.id.nav_share) {
 
