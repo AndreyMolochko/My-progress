@@ -113,10 +113,12 @@ public class SportDiary extends AppCompatActivity {
     }
     @OnItemClick(R.id.listview)
     public void onItemSelected(int position){
+        Bundle bundle = new Bundle();
+        String str = listView.getItemAtPosition(position).toString();
+        bundle.putString("titleExercise",str);
+        fragmentAddExercise.setArguments(bundle);
         fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.layoutForAddExercise,fragmentAddExercise);
-        //fragmentAddExercise.textViewSet.setText("hello");
-        //((TextView)fragmentAddExercise.getView().findViewById(R.id.textViewExercise)).setText("hello");
         fragmentTransaction.commit();
 
         listView.setAdapter(null);

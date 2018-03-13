@@ -1,4 +1,4 @@
-package com.example.user.myprogress.data;
+package com.example.user.myprogress;
 
 import java.text.Normalizer;
 
@@ -14,9 +14,9 @@ public class Formula {
         return (weight*reps/30)+weight;//return maximal weight of barbell, which user can do
     }
 
-    private double formulaMattBrzycki(double weight,int reps){
-        return weight*(36/(37-reps));
-    }
+    /*private double formulaMattBrzycki(double weight,int reps){
+        return (36/(37-reps))*weight;
+    }*/
 
     private double formulaLander(double weight,int reps){
         return (100*weight)/(-2.67123*reps+101.3);
@@ -28,6 +28,6 @@ public class Formula {
 
     public double formulaAverage(double weight,int reps){//if(reps<30)
         return (formulaEpley(weight,reps)+formulaLander(weight,reps)
-                +formulaMattBrzycki(weight, reps)+formulaOConner(weight, reps))/4;
+                +formulaOConner(weight, reps))/3;
     }
 }

@@ -12,7 +12,7 @@ import android.util.Log;
 
 public class ExerciseDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="exercise.db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
     public ExerciseDBHelper(Context context){
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
@@ -23,7 +23,7 @@ public class ExerciseDBHelper extends SQLiteOpenHelper {
             String SQL_CREATE_EXERCISES_NAME = "CREATE TABLE " + ExerciseContract.ExerciseEntry.TABLE_NAME
                     +" ("+ ExerciseContract.ExerciseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + ExerciseContract.ExerciseEntry.COLUMN_NAME + " TEXT NOT NULL, "
-                    + ExerciseContract.ExerciseEntry.COLUMN_WEIGHT + " INTEGER NOT NULL, "
+                    + ExerciseContract.ExerciseEntry.COLUMN_WEIGHT + " REAL NOT NULL, "
                     + ExerciseContract.ExerciseEntry.COLUMN_TYPE + " INTEGER NOT NULL DEFAULT 0, "
                     + ExerciseContract.ExerciseEntry.COLUMN_SET + " INTEGER NOT NULL, "
                     + ExerciseContract.ExerciseEntry.COLUMN_REP + " INTEGER NOT NULL, "

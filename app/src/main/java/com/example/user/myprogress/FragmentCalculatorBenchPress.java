@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.user.myprogress.data.Formula;
-
 /**
  * Created by User on 12.03.2018.
  */
@@ -58,7 +56,6 @@ public class FragmentCalculatorBenchPress extends Fragment implements View.OnCli
             e.printStackTrace();
             return false;
         }
-
     }
 
     private boolean isntEmptyView(Double weight,int reps){
@@ -71,8 +68,9 @@ public class FragmentCalculatorBenchPress extends Fragment implements View.OnCli
         switch(view.getId()){
             case R.id.buttonCalculatePressBrench:
                 if(getDataView())textViewResult.setText(String.valueOf(formula.formulaAverage(weight,reps)));
-                else Toast.makeText(getActivity(),"The data isn't correct",Toast.LENGTH_SHORT).show();
+                else Toast.makeText(getActivity(),R.string.incorrectData,Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.buttonCompleteExercise:
         }
     }
 

@@ -58,6 +58,7 @@
             android:id="@+id/spinnerForWeight"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:entries="@array/typeOfWeight"
             android:layout_weight="0" />
     </LinearLayout>
 
