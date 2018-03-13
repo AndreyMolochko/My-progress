@@ -1,6 +1,7 @@
 package com.example.user.myprogress;
 
 import android.app.Fragment;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -106,13 +107,58 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
                 null);
 
         try{
-            //textViewSet.setText("Таблица содержит " + cursor.getCount() + " гостей.\n\n");
+            /*textViewSet.setText("Таблица содержит " + cursor.getCount() + " гостей.\n\n");
+            textViewSet.append(ExerciseContract.ExerciseEntry._ID+" - "
+                    + " - "+ExerciseContract.ExerciseEntry.COLUMN_NAME+" - "+
+                    ExerciseContract.ExerciseEntry.COLUMN_WEIGHT+" - "+
+                    ExerciseContract.ExerciseEntry.COLUMN_TYPE+" - "+
+                    ExerciseContract.ExerciseEntry.COLUMN_SET+" - "+
+                    ExerciseContract.ExerciseEntry.COLUMN_REP+" - "+
+                    ExerciseContract.ExerciseEntry.COLUMN_DATE+ "\n"
+            );
+            int idIndex = cursor.getColumnIndex(ExerciseContract.ExerciseEntry._ID);
+            int idName = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_NAME);
+            int idWeight = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_WEIGHT);
+            int idType = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_TYPE);
+            int idSet = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_SET);
+            int idRep = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_REP);
+            int idDate = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_DATE);
+            while(cursor.moveToNext()){
+                int ind = cursor.getInt(idIndex);
+                int typeInd = cursor.getInt(idType);
+                int setInd = cursor.getInt(idSet);
+                int repInd = cursor.getInt(idRep);
+                String nameInd=cursor.getString(idName);
+                String dateInd=cursor.getString(idDate);
+                double weightInd = cursor.getDouble(idWeight);
+                String valWeigth = String.valueOf(weightInd);
+                textViewSet.append(ind+
+                        nameInd+" - " +
+                        valWeigth+" - " +
+                        typeInd+" - " +
+                        setInd+" - " +
+                        repInd+" - " +
+                        dateInd
+                );
+            }*/
             Log.i("dataBD","toasta");
         }
         finally {
             cursor.close();
             Log.i("dataBD","toastFinish");
         }
+    }
+
+    private void addExercise(){
+        SQLiteDatabase db = mDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ExerciseContract.ExerciseEntry.COLUMN_NAME,nameExercise);
+        values.put(ExerciseContract.ExerciseEntry.COLUMN_WEIGHT,weight);
+        values.put(ExerciseContract.ExerciseEntry.COLUMN_TYPE,type);
+        values.put(ExerciseContract.ExerciseEntry.COLUMN_SET,counterSet);
+        values.put(ExerciseContract.ExerciseEntry.COLUMN_REP,reps);
+        values.put(ExerciseContract.ExerciseEntry.COLUMN_DATE,date);
+        long newRowId = db.insert(ExerciseContract.ExerciseEntry.TABLE_NAME,null,values);
     }
 
     private boolean getDataView(){
@@ -135,6 +181,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonAddSet:if(getDataView()){counterSet++;
+                addExercise();
                 displayDatabaseInfo();
                 Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
                 }
