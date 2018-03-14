@@ -4,6 +4,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,7 @@ public class SportDiary extends AppCompatActivity {
     ArrayList<String> arrayExercise;
     FragmentTransaction fragmentTransaction;
     FragmentAddExercise fragmentAddExercise;
+    FragmentCalendar fragmentCalendar;
     String Tag = "ProgresDiary";
 
     @Override
@@ -52,6 +54,7 @@ public class SportDiary extends AppCompatActivity {
         //listView = (ListView)findViewById(R.id.listview);
         mDBHelper = new ExerciseDBHelper(this);
         fragmentAddExercise = new FragmentAddExercise();
+        fragmentCalendar = new FragmentCalendar();
         arrayExercise = new ArrayList<>();
         arrayExercise.addAll(Arrays.asList(getResources().getStringArray(R.array.array_exercises)));
         infromLogger("Succes addAll");
@@ -96,6 +99,7 @@ public class SportDiary extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
         MenuItem item = menu.findItem(R.id.item_search);
+        MenuItem itemCalendar = menu.findItem(R.id.item_calendar);
         SearchView searchView = (SearchView)item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -111,6 +115,22 @@ public class SportDiary extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id =item.getItemId();
+        switch (id){
+            case R.id.item_calendar:
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentCalendar);
+                fragmentTransaction.commit();
+                Toast.makeText(getApplicationContext(), "123312", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @OnItemClick(R.id.listview)
     public void onItemSelected(int position){
         Bundle bundle = new Bundle();

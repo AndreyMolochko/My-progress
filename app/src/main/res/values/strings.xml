@@ -32,7 +32,8 @@
     <string name="sex">Sex:</string>
     <string name="bar_weight">Bar weight</string>
     <string name="calculate">Calculate</string>
-    <string name="incorrectData">The data isnt correct</string>>
+    <string name="incorrectData">The data isnt correct</string>
+    <string name="search">Search</string>>
     <string-array name="array_exercises">
         <item>Становая тяга</item>
         <item>Тяга штанги в наклоне</item>
