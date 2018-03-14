@@ -1,8 +1,10 @@
 package com.example.user.myprogress;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +72,8 @@ public class FragmentCalculatorBenchPress extends Fragment implements View.OnCli
                 if(getDataView())textViewResult.setText(String.valueOf(formula.formulaAverage(weight,reps)));
                 else Toast.makeText(getActivity(),R.string.incorrectData,Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.buttonCompleteExercise:
+            //case R.id.buttonCompleteExercise:
+
         }
     }
 

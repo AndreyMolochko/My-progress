@@ -125,7 +125,14 @@ public class SportDiary extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentCalendar);
                 fragmentTransaction.commit();
                 Toast.makeText(getApplicationContext(), "123312", Toast.LENGTH_SHORT).show();
-
+                /*FragmentShowExercise fragmentShowExercise = new FragmentShowExercise();
+                Log.i("dataBD","fafafafa");
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                Log.i("dataBD","afafafaf");
+                fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentShowExercise);
+                Log.i("dataBD","afafafaf");
+                fragmentTransaction.commit();
+                Log.i("dataBD","124124124");*/
                 break;
         }
         return super.onOptionsItemSelected(item);
