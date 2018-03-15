@@ -24,8 +24,8 @@ import java.util.Map;
 public class FragmentShowExercise extends Fragment {
     ListView resultListView;
     ArrayList<String>receivedData;
-    HashMap<String, String> exercises;
-    List<HashMap<String, String>> listItems;
+    Map<String, String> exercises;
+    List<Map<String, String>> listItems;
     SimpleAdapter adapter;
     @Nullable
     @Override
@@ -34,9 +34,11 @@ public class FragmentShowExercise extends Fragment {
         receivedData=this.getArguments().getStringArrayList("listExercises");
         resultListView = (ListView)view.findViewById(R.id.listShowExercises);
         exercises = new HashMap<>();
+        Log.i("showEx1 = ","size 1 = "+String.valueOf(exercises.size()));
         /*exercises.put("Diana", "3214 Broadway Avenue");
         exercises.put("Tyga", "343 Rack City Drive");*/
         parseReceivedData();
+        Log.i("showEx","size 2 = "+String.valueOf(exercises.size()));
         listItems=new ArrayList<>();
         adapter = new SimpleAdapter(getActivity(), listItems, R.layout.items_list_show_exercises,
                 new String[]{"First Line", "Second Line"},
@@ -44,6 +46,7 @@ public class FragmentShowExercise extends Fragment {
         Iterator it = exercises.entrySet().iterator();
         while (it.hasNext())
         {
+            Log.i("showEx",String.valueOf(exercises.size()));
             HashMap<String, String> resultsMap = new HashMap<>();
             Map.Entry pair = (Map.Entry)it.next();
             resultsMap.put("First Line", pair.getKey().toString());
@@ -63,11 +66,12 @@ public class FragmentShowExercise extends Fragment {
             String []arr = receivedData.get(i).split("!");
             outputData(arr);
             Log.i("showExerc",i+ "  "+arr[0]+" "+ arr[1]+"  "+arr[2]+" "+arr[3]+"  "+arr[4]+" "+arr[5]);
-            Log.i("showExerc",String.valueOf(receivedData.size()));
+            //Log.i("showExerc",String.valueOf(receivedData.size()));
         }
     }
 
     private void outputData(String []arr){
+        Log.i("showExerc","outputDataDInamic  "+String.valueOf(exercises.size()));
         if(arr[4].equals("0"))exercises.put(arr[1],arr[0]+" set "+arr[2] + " weight = "+arr[3]+" kg " + arr[5]+" reps");
         else exercises.put(arr[1],arr[0]+" set "+arr[2] + " weight = "+arr[3]+" pounds "+ arr[5]+" reps");
     }
