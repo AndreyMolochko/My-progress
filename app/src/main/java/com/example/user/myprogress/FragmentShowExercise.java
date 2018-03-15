@@ -31,22 +31,23 @@ public class FragmentShowExercise extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_show_exercises,null);
+        init(view);
+
+
+        return  view;
+    }
+
+    public void init(View view){
         receivedData=this.getArguments().getStringArrayList("listExercises");
         resultListView = (ListView)view.findViewById(R.id.listShowExercises);
         exercises = new HashMap<>();
-        Log.i("showEx1 = ","size 1 = "+String.valueOf(exercises.size()));
-        /*exercises.put("Diana", "3214 Broadway Avenue");
-        exercises.put("Tyga", "343 Rack City Drive");*/
         parseReceivedData();
-        Log.i("showEx","size 2 = "+String.valueOf(exercises.size()));
         listItems=new ArrayList<>();
         adapter = new SimpleAdapter(getActivity(), listItems, R.layout.items_list_show_exercises,
                 new String[]{"First Line", "Second Line"},
                 new int[]{R.id.textViewItemName, R.id.textViewSubItem});
         Iterator it = exercises.entrySet().iterator();
-        while (it.hasNext())
-        {
-            Log.i("showEx",String.valueOf(exercises.size()));
+        while (it.hasNext()){
             HashMap<String, String> resultsMap = new HashMap<>();
             Map.Entry pair = (Map.Entry)it.next();
             resultsMap.put("First Line", pair.getKey().toString());
@@ -54,9 +55,6 @@ public class FragmentShowExercise extends Fragment {
             listItems.add(resultsMap);
         }
         resultListView.setAdapter(adapter);
-
-
-        return  view;
     }
 
     private void parseReceivedData(){

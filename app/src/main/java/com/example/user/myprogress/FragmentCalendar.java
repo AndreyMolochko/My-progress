@@ -35,11 +35,20 @@ public class FragmentCalendar extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_calendar,null);
+        init(view);
+        return view;
+    }
+
+    public void init(View view){
         mDBHelper = new ExerciseDBHelper(getActivity());
         calendarView = (CalendarView)view.findViewById(R.id.calendarView);
         fragmentShowExercise = new FragmentShowExercise();
         fragmentTransaction = getFragmentManager().beginTransaction();
         dataExercises = new ArrayList<>();
+        initOnClickListner();
+    }
+
+    public void initOnClickListner(){
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
@@ -61,7 +70,6 @@ public class FragmentCalendar extends Fragment {
                 }
             }
         });
-        return view;
     }
     private boolean displayDatabaseInfo(String clickData){
         dataExercises.clear();
