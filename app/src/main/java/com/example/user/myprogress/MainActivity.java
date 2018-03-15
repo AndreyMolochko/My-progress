@@ -154,21 +154,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         fragmentTransaction=getFragmentManager().beginTransaction();
-        if (id == R.id.nav_sport) {
+        if (id == R.id.nav_run) {
             fragmentTransaction.add(R.id.layoutSportFrag,fragmentSport);
             // Handle the sport action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_strength_exercises) {
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_fat_calculator) {
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentFreeRunning);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_press) {
             fragmentTransaction.add(R.id.layoutSportFrag,fragmentCalculatorBenchPress);
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_settings) {
 
         }
         //Log.i("checking","ffffffff");
