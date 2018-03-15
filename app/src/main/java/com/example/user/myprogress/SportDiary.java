@@ -124,7 +124,7 @@ public class SportDiary extends AppCompatActivity {
                 fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentCalendar);
                 fragmentTransaction.commit();
-                Toast.makeText(getApplicationContext(), "123312", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "123312", Toast.LENGTH_SHORT).show();
                 /*FragmentShowExercise fragmentShowExercise = new FragmentShowExercise();
                 Log.i("dataBD","fafafafa");
                 fragmentTransaction = getFragmentManager().beginTransaction();

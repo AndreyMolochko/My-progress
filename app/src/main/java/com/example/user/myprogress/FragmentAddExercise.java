@@ -96,18 +96,20 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
                 ExerciseContract.ExerciseEntry.COLUMN_REP,
                 ExerciseContract.ExerciseEntry.COLUMN_DATE
         };
+        String selection = ExerciseContract.ExerciseEntry.COLUMN_DATE + "=?";
+        String[] selectionArgs = {"14.03.2018"};
 
         Cursor cursor = db.query(
                 ExerciseContract.ExerciseEntry.TABLE_NAME,
                 projection,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 null,
                 null,
                 null);
 
         try{
-            /*textViewSet.setText("Таблица содержит " + cursor.getCount() + " гостей.\n\n");
+            textViewSet.setText("Таблица содержит " + cursor.getCount() + " гостей.\n\n");
             textViewSet.append(ExerciseContract.ExerciseEntry._ID+" - "
                     + " - "+ExerciseContract.ExerciseEntry.COLUMN_NAME+" - "+
                     ExerciseContract.ExerciseEntry.COLUMN_WEIGHT+" - "+
@@ -140,7 +142,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
                         repInd+" - " +
                         dateInd
                 );
-            }*/
+            }
             Log.i("dataBD","toasta");
         }
         finally {
@@ -182,10 +184,13 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
         switch (view.getId()){
             case R.id.buttonAddSet:if(getDataView()){counterSet++;
                 addExercise();
-                displayDatabaseInfo();
                 Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
                 }
-                else Toast.makeText(getActivity(),R.string.incorrectData,Toast.LENGTH_SHORT).show();
+                else {
+                Toast.makeText(getActivity(), R.string.incorrectData, Toast.LENGTH_SHORT).show();
+                displayDatabaseInfo();
+                }
+
                 break;
             case R.id.buttonCompleteExercise:counterSet=0;
                 break;
