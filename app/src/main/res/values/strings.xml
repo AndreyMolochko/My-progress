@@ -40,7 +40,14 @@
     <string name="fat_calculator">Fat calculator</string>
     <string name="support">Support</string>
     <string name="language">Language</string>
-    <string name="change_theme">Change theme</string>>
+    <string name="change_theme">Change theme</string>
+    <string name="russian">Russian</string>
+    <string name="english">English</string>
+    <string name="contact_support">If you find some mistakes in this application or you have ideas, which help to do this app better you can contact with me</string>
+    <string name="blue">Blue</string>
+    <string name="purple">Purple</string>
+    <string name="red">Red</string>
+    >
     <string-array name="array_exercises">
         <item>Становая тяга</item>
         <item>Тяга штанги в наклоне</item>
