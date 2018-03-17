@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     FragmentSport fragmentSport;
     FragmentCalculator fragmentCalculator;
     FragmentAddExercise fragmentAddExercise;
+    FragmentSettings fragmentSettings;
     FragmentCalculatorBenchPress fragmentCalculatorBenchPress;
     Boolean beginRunning;
 
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity
 
     public void initFragments(){
         fragmentStartRun = new FragmentStartRun();
+        fragmentSettings = new FragmentSettings();
         fragmentChooseRun = new FragmentChooseRun();
         fragmentFreeRunning = new FragmentFreeRunning();
         fragmentSetDistance = new FragmentSetDistance();
@@ -155,19 +157,21 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         fragmentTransaction=getFragmentManager().beginTransaction();
         if (id == R.id.nav_run) {
-            fragmentTransaction.add(R.id.layoutSportFrag,fragmentSport);
+            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
             // Handle the sport action
         } else if (id == R.id.nav_strength_exercises) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
+            Intent intentDiary = new Intent(MainActivity.this,SportDiary.class);
+            startActivity(intentDiary);
 
         } else if (id == R.id.nav_fat_calculator) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentFreeRunning);
+            Intent intentCalculator = new Intent(MainActivity.this,CalculatorFat.class);
+            startActivity(intentCalculator);
 
         } else if (id == R.id.nav_press) {
-            fragmentTransaction.add(R.id.layoutSportFrag,fragmentCalculatorBenchPress);
+            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculatorBenchPress);
 
         } else if (id == R.id.nav_settings) {
-
+            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentSettings);
         }
         //Log.i("checking","ffffffff");
         fragmentTransaction.commit();

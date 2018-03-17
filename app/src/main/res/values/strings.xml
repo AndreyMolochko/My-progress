@@ -37,7 +37,10 @@
     <string name="run">Run</string>
     <string name="strength_exercises">Strength exercises</string>
     <string name="calculator_bench_press">Calculator bench press</string>
-    <string name="fat_calculator">Fat calculator</string>>
+    <string name="fat_calculator">Fat calculator</string>
+    <string name="support">Support</string>
+    <string name="language">Language</string>
+    <string name="change_theme">Change theme</string>>
     <string-array name="array_exercises">
         <item>Становая тяга</item>
         <item>Тяга штанги в наклоне</item>
