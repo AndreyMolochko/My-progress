@@ -1,4 +1,4 @@
-package com.example.user.myprogress;
+package com.example.user.myprogress.Settings;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.user.myprogress.R;
 
 /**
  * Created by User on 17.03.2018.

@@ -27,6 +27,8 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import com.example.user.myprogress.Settings.FragmentSettings;
+
 import java.util.Date;
 
 import butterknife.BindView;
