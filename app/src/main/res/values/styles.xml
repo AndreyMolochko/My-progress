@@ -16,5 +16,25 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="purple">
+        <item name="colorPrimary">@color/purple500</item>
+        <item name="colorPrimaryDark">@color/purple700</item>
+    </style>
+    <style name="red">
+        <item name="colorPrimary">@color/red500</item>
+        <item name="colorPrimaryDark">@color/red700</item>
+    </style>
+    <style name="green">
+        <item name="colorPrimary">@color/green500</item>
+        <item name="colorPrimaryDark">@color/green700</item>
+    </style>
+    <style name="orange">
+        <item name="colorPrimary">@color/orange500</item>
+        <item name="colorPrimaryDark">@color/orange700</item>
+    </style>
+    <style name="pink">
+        <item name="colorPrimary">@color/pink500</item>
+        <item name="colorPrimaryDark">@color/pink700</item>
+    </style>
 
 </resources>
