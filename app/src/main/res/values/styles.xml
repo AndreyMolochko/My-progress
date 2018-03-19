@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="color">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -19,22 +19,27 @@
     <style name="purple">
         <item name="colorPrimary">@color/purple500</item>
         <item name="colorPrimaryDark">@color/purple700</item>
+        <item name="android:windowBackground">@color/purple200</item>
     </style>
-    <style name="red">
+    <style name="red" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/red500</item>
         <item name="colorPrimaryDark">@color/red700</item>
+        <item name="android:windowBackground">@color/red200</item>
     </style>
     <style name="green">
         <item name="colorPrimary">@color/green500</item>
         <item name="colorPrimaryDark">@color/green700</item>
+        <item name="android:windowBackground">@color/green200</item>
     </style>
     <style name="orange">
         <item name="colorPrimary">@color/orange500</item>
         <item name="colorPrimaryDark">@color/orange700</item>
+        <item name="android:windowBackground">@color/orange200</item>
     </style>
     <style name="pink">
         <item name="colorPrimary">@color/pink500</item>
         <item name="colorPrimaryDark">@color/pink700</item>
+        <item name="android:windowBackground">@color/pink200</item>
     </style>
 
 </resources>

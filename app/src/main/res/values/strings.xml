@@ -47,6 +47,7 @@
     <string name="blue">Blue</string>
     <string name="purple">Purple</string>
     <string name="red">Red</string>
+    <string name="set_1">Set 1</string>
     >
     <string-array name="array_exercises">
         <item>Становая тяга</item>

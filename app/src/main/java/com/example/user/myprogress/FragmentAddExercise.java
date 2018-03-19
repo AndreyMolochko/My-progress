@@ -35,7 +35,6 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
 
     //@BindView(R.id.buttonAddSet) Button btn;
     //@BindView(R.id.textViewExercise) TextView textViewSet;
-    TextView textViewSet;
     private ExerciseDBHelper mDBHelper;
     String nameExercise;
     double weight;
@@ -48,6 +47,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
     EditText editTextWeight;
     EditText editTextReps;
     Spinner spinnerTypeWeight;
+    TextView textViewSet;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -184,15 +184,17 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
         switch (view.getId()){
             case R.id.buttonAddSet:if(getDataView()){counterSet++;
                 addExercise();
-                Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
+                textViewSet.setText("Set "+(counterSet+1));
                 }
                 else {
                 Toast.makeText(getActivity(), R.string.incorrectData, Toast.LENGTH_SHORT).show();
-                displayDatabaseInfo();
+                //displayDatabaseInfo();
                 }
 
                 break;
             case R.id.buttonCompleteExercise:counterSet=0;
+                textViewSet.setText("Set "+(counterSet+1));
                 break;
         }
     }

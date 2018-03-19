@@ -2,6 +2,7 @@ package com.example.user.myprogress;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -14,6 +15,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.app.FragmentTransaction;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -171,7 +174,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_press) {
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculatorBenchPress);
-
         } else if (id == R.id.nav_settings) {
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentSettings);
         }
