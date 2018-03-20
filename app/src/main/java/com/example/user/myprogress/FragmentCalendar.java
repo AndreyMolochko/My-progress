@@ -61,7 +61,7 @@ public class FragmentCalendar extends Fragment {
                 selectedDate = new StringBuilder().append(mDay)
                         .append(".").append(mMonth).append(".").append(mYear)
                         .append("").toString();
-                if(displayDatabaseInfo(selectedDate)) {//Toast.makeText(getActivity(), selectedDate, Toast.LENGTH_LONG).show();
+                if(displayDatabaseInfo(selectedDate)) {Toast.makeText(getActivity(), dataExercises.get(0), Toast.LENGTH_LONG).show();
                     Bundle bundle = new Bundle();
                     bundle.putStringArrayList("listExercises",dataExercises);
                     fragmentShowExercise.setArguments(bundle);
@@ -116,7 +116,7 @@ public class FragmentCalendar extends Fragment {
                     double weightInd = cursor.getDouble(idWeight);
                     String valWeigth = String.valueOf(weightInd);
                     dataExercises.add(
-                            dateInd+"!"
+                            ind+"!"+ dateInd+"!"
                             +nameInd+"!"
                             +setInd+"!"
                             +valWeigth+"!" +

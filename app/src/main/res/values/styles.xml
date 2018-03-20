@@ -16,7 +16,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="purple">
+    <style name="purple" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/purple500</item>
         <item name="colorPrimaryDark">@color/purple700</item>
         <item name="android:windowBackground">@color/purple200</item>
@@ -26,7 +26,7 @@
         <item name="colorPrimaryDark">@color/red700</item>
         <item name="android:windowBackground">@color/red200</item>
     </style>
-    <style name="green">
+    <style name="green" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/green500</item>
         <item name="colorPrimaryDark">@color/green700</item>
         <item name="android:windowBackground">@color/green200</item>
