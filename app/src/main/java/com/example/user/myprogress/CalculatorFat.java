@@ -87,17 +87,7 @@ public class CalculatorFat extends AppCompatActivity {
         }
         //infromLogger(Float.toString(growth));
     }
-    public Boolean isCheckingCorrectEnter(){
-        try {
-            Float.parseFloat(String.valueOf(editTextForNeck.getEditableText()));
-            Float.parseFloat(String.valueOf(editTextForWaist.getEditableText()));
-            return true;
-        } catch (NumberFormatException e) {
-            infromLogger("mistake in parse");
-            return false;
 
-        }
-    }
     //проверка на правильный ввод
     //проверка на ввод всех значений
     public  void infromLogger(String statement){
