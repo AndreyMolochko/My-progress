@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="8dp"
     tools:layout_editor_absoluteX="16dp"
@@ -45,7 +46,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutForGrowth"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutForWeight"
@@ -77,7 +78,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutForWeight"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutForWaist"
@@ -106,7 +107,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutForWaist"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutForNeck"
@@ -136,7 +137,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutForNeck"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutForThigh"
@@ -166,7 +167,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutForThigh"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/buttonForShowingResult"
@@ -195,7 +196,7 @@
 
     <Button
         android:id="@+id/buttonForShowingResult"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@color/grey300"
