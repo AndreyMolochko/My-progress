@@ -23,7 +23,7 @@
             android:id="@+id/textViewWeightPress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:labelFor="@id/editTextWeightBrech"
             android:text="@string/bar_weight"
             android:textSize="34sp" />
@@ -36,11 +36,6 @@
             android:ems="10"
             android:inputType="number" />
 
-        <Spinner
-            android:id="@+id/spinnerForChooseTypeWeight"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -74,10 +69,11 @@
     <Button
         android:id="@+id/buttonCalculatePressBrench"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="@string/calculate"
+        android:background="@color/grey300"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

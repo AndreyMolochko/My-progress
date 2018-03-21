@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by User on 12.03.2018.
  */
@@ -69,7 +71,12 @@ public class FragmentCalculatorBenchPress extends Fragment implements View.OnCli
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.buttonCalculatePressBrench:
-                if(getDataView())textViewResult.setText(String.valueOf(formula.formulaAverage(weight,reps)));
+
+                if(getDataView()){
+                    String formattedDouble = new DecimalFormat("#0.00").format(formula.formulaAverage(weight,reps));
+                    //String str=String.valueOf(formula.formulaAverage(weight,reps));
+                    textViewResult.setText(formattedDouble);
+                }
                 else Toast.makeText(getActivity(),R.string.incorrectData,Toast.LENGTH_SHORT).show();
                 break;
             //case R.id.buttonCompleteExercise:

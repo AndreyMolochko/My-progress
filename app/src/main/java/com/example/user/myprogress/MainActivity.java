@@ -169,8 +169,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intentDiary);
 
         } else if (id == R.id.nav_fat_calculator) {
-            Intent intentCalculator = new Intent(MainActivity.this,CalculatorFat.class);
-            startActivity(intentCalculator);
+            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculator);
 
         } else if (id == R.id.nav_press) {
             fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculatorBenchPress);

@@ -5,21 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="8dp"
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="81dp">
 
 
     <LinearLayout
         android:id="@+id/linearLayoutForSex"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="49dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutForGrowth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.07999998"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="12dp">
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textViewForSex"
@@ -193,9 +196,13 @@
     <Button
         android:id="@+id/buttonForShowingResult"
         android:layout_width="360dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey700"
         android:text="@string/show_result"
+        android:textColor="@color/lime"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
