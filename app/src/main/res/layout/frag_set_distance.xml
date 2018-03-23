@@ -32,23 +32,18 @@
             android:inputType="number"
             android:text="Enter the distance" />
 
-        <TextView
-            android:id="@+id/textViewMeasureDistanse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="M"
-            android:textSize="34sp" />
+
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:onClick="onClickSport"
         android:text="@string/next"
+        android:background="@color/grey300"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

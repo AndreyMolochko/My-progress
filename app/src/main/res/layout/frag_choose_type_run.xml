@@ -8,12 +8,12 @@
     <Button
         android:id="@+id/buttonSetDistance"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="50dp"
+
         android:layout_marginTop="8dp"
-        android:text="@string/set_distance"
+        android:background="@color/grey300"
         android:onClick="onClickSport"
+        android:text="@string/set_distance"
         app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,12 +22,13 @@
     <Button
         android:id="@+id/buttonFreeRunning"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="50dp"
+        
+        android:layout_marginTop="8dp"
+        android:background="@color/grey300"
         android:onClick="onClickSport"
         android:text="@string/free_running"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSetDistance" />

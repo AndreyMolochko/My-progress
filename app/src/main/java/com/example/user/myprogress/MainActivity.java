@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity
     TextView tvEnabledNet;
     TextView tvStatusNet;
     TextView tvLocationNet;*/
-    FragmentStartRun fragmentStartRun;
+    TextView textViewGPS;
+    //FragmentStartRun fragmentStartRun;
     FragmentChooseRun fragmentChooseRun;
     FragmentTransaction fragmentTransaction;
     FragmentFreeRunning fragmentFreeRunning;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     FragmentCalculator fragmentCalculator;
     FragmentAddExercise fragmentAddExercise;
     FragmentSettings fragmentSettings;
+    FragmentDiary fragmentDiary;
     FragmentCalculatorBenchPress fragmentCalculatorBenchPress;
     Boolean beginRunning;
 
@@ -72,10 +74,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void init() {
-        initFloatButton();
+        //initFloatButton();
         initActionBar();
         initFragments();
-        beginRunning=false;
+        beginRunning = false;
+        //textViewGPS = (TextView) findViewById(R.id.textViewTestingGPS);
         /*tvEnabledGPS = (TextView) findViewById(R.id.tvEnabledGPS);
         tvStatusGPS = (TextView) findViewById(R.id.tvStatusGPS);
         tvLocationGPS = (TextView) findViewById(R.id.tvLocationGPS);
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 
-    public void initFloatButton(){
+    /*public void initFloatButton(){
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,9 +98,9 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-    }
+    }*/
 
-    public void initActionBar(){
+    public void initActionBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -110,13 +113,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    public void initFragments(){
-        fragmentStartRun = new FragmentStartRun();
+    public void initFragments() {
+        //fragmentStartRun = new FragmentStartRun();
         fragmentSettings = new FragmentSettings();
         fragmentChooseRun = new FragmentChooseRun();
         fragmentFreeRunning = new FragmentFreeRunning();
         fragmentSetDistance = new FragmentSetDistance();
         fragmentSport = new FragmentSport();
+        fragmentDiary = new FragmentDiary();
         fragmentCalculator = new FragmentCalculator();
         fragmentAddExercise = new FragmentAddExercise();
         fragmentCalculatorBenchPress = new FragmentCalculatorBenchPress();
@@ -145,12 +149,12 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        /*int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -160,21 +164,21 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        fragmentTransaction=getFragmentManager().beginTransaction();
+        fragmentTransaction = getFragmentManager().beginTransaction();
         if (id == R.id.nav_run) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
+            fragmentTransaction.replace(R.id.layoutSportFrag, fragmentChooseRun);
             // Handle the sport action
         } else if (id == R.id.nav_strength_exercises) {
-            Intent intentDiary = new Intent(MainActivity.this,SportDiary.class);
+            Intent intentDiary = new Intent(MainActivity.this, SportDiary.class);
             startActivity(intentDiary);
-
+            //fragmentTransaction.replace(R.id.layoutSportFrag,fragmentDiary);
         } else if (id == R.id.nav_fat_calculator) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculator);
+            fragmentTransaction.replace(R.id.layoutSportFrag, fragmentCalculator);
 
         } else if (id == R.id.nav_press) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentCalculatorBenchPress);
+            fragmentTransaction.replace(R.id.layoutSportFrag, fragmentCalculatorBenchPress);
         } else if (id == R.id.nav_settings) {
-            fragmentTransaction.replace(R.id.layoutSportFrag,fragmentSettings);
+            fragmentTransaction.replace(R.id.layoutSportFrag, fragmentSettings);
         }
         //Log.i("checking","ffffffff");
         fragmentTransaction.commit();
@@ -184,102 +188,97 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    public void onClickSport(View view){
+
+    public void onClickSport(View view) {
 
         fragmentTransaction = getFragmentManager().beginTransaction();
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.imageButtonRun:
-                fragmentTransaction.replace(R.id.layoutSportFrag,fragmentChooseRun);
+                fragmentTransaction.replace(R.id.layoutSportFrag, fragmentChooseRun);
                 break;
             case R.id.imageButtonCalculator:
-                Intent intentCalculator = new Intent(MainActivity.this,CalculatorFat.class);
+                Intent intentCalculator = new Intent(MainActivity.this, CalculatorFat.class);
                 startActivity(intentCalculator);
                 break;
             case R.id.imageButtonSportDiary:
-                Intent intentDiary = new Intent(MainActivity.this,SportDiary.class);
+                Intent intentDiary = new Intent(MainActivity.this, SportDiary.class);
                 startActivity(intentDiary);
                 break;
                 /*fragmentTransaction.replace(R.id.layoutSportFrag,fragmentAddExercise);
                 break;*/
             case R.id.buttonSetDistance:
-                fragmentTransaction.add(R.id.layoutSportFrag,fragmentSetDistance);
+                fragmentTransaction.add(R.id.layoutSportFrag, fragmentSetDistance);
                 break;
             case R.id.buttonFreeRunning:
-                fragmentTransaction.replace(R.id.layoutSportFrag,fragmentFreeRunning);
+                fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
                 break;
             case R.id.buttonNext:
-                fragmentTransaction.replace(R.id.layoutSportFrag,fragmentFreeRunning);
+                fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
                 break;
             case R.id.buttonStartFinishRunning:
-                if(!beginRunning) {
+                if (!beginRunning) {
                     ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
                             setText("Finish running");
-                    ((Chronometer)fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
+                    ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
                             start();
-                    beginRunning=true;
+                    beginRunning = true;
                     ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonResetTime)).
                             setVisibility(View.VISIBLE);
-                }
-                else{
+
+                } else {
                     ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
                             setText("Start running");
-                    ((Chronometer)fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
+                    ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
                             stop();
-                    beginRunning=false;
+                    beginRunning = false;
                 }
                 break;
             case R.id.buttonResetTime:
-                Snackbar.make(view,"Reset time",Snackbar.LENGTH_LONG).
-                        setAction("Yes",snackbarOnClick).show();
+                Snackbar.make(view, "Reset time", Snackbar.LENGTH_LONG).
+                        setAction("Yes", snackbarOnClick).show();
                 break;
         }
         fragmentTransaction.commit();
     }
-    View.OnClickListener snackbarOnClick = new View.OnClickListener(){
+
+    View.OnClickListener snackbarOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            ((Chronometer)fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
+            ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
                     setBase(SystemClock.elapsedRealtime());
             ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
                     setText("Start running");
             ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonResetTime)).
                     setVisibility(View.INVISIBLE);
-            ((Chronometer)fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
+            ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
                     stop();
-            beginRunning=false;
+            beginRunning = false;
         }
     };
 
-
-    /*@Override
+    /*@SuppressLint("MissingPermission")
+    @Override
     protected void onResume() {
         super.onResume();
-        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10,locationListener);
-        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,10,);
-        Log.i("mistake", "4");
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                1000, 1, locationListener);
-        Log.i("mistake", "5");
+                1000 * 10, 10, locationListener);
         locationManager.requestLocationUpdates(
                 LocationManager.NETWORK_PROVIDER, 1000 * 10, 10,
                 locationListener);
-        Log.i("mistake","6");
         checkEnabled();
-        Log.i("mistake","7");
     }
 
-    @SuppressLint("MissingPermission")
     @Override
     protected void onPause() {
         super.onPause();
         locationManager.removeUpdates(locationListener);
-    }*/
+    }
 
-    /*private LocationListener locationListener = new LocationListener() {
+    private LocationListener locationListener = new LocationListener() {
 
         @Override
         public void onLocationChanged(Location location) {
-            showLocation(location);
+            //showLocation(location);
         }
 
         @Override
@@ -287,54 +286,31 @@ public class MainActivity extends AppCompatActivity
             checkEnabled();
         }
 
-        @SuppressLint("MissingPermission")
         @Override
         public void onProviderEnabled(String provider) {
             checkEnabled();
-            showLocation(locationManager.getLastKnownLocation(provider));
+            //showLocation(locationManager.getLastKnownLocation(provider));
         }
 
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
             if (provider.equals(LocationManager.GPS_PROVIDER)) {
-                tvStatusGPS.setText("Status: " + String.valueOf(status));
+               // tvStatusGPS.setText("Status: " + String.valueOf(status));
             } else if (provider.equals(LocationManager.NETWORK_PROVIDER)) {
-                tvStatusNet.setText("Status: " + String.valueOf(status));
+                //tvStatusNet.setText("Status: " + String.valueOf(status));
             }
         }
-    };*/
-
-   /* private void showLocation(Location location) {
-        if (location == null)
-            return;
-        if (location.getProvider().equals(LocationManager.GPS_PROVIDER)) {
-            tvLocationGPS.setText(formatLocation(location));
-        } else if (location.getProvider().equals(
-                LocationManager.NETWORK_PROVIDER)) {
-            tvLocationNet.setText(formatLocation(location));
-        }
-    }*/
-
-    private String formatLocation(Location location) {
-        if (location == null)
-            return "";
-        return String.format(
-                "Coordinates: lat = %1$.4f, lon = %2$.4f, time = %3$tF %3$tT",
-                location.getLatitude(), location.getLongitude(), new Date(
-                        location.getTime()));
-    }
-
-    /*private void checkEnabled() {
-        tvEnabledGPS.setText("Enabled: "
+    };
+    private void checkEnabled() {
+        textViewGPS.setText("Enabled: "
                 + locationManager
                 .isProviderEnabled(LocationManager.GPS_PROVIDER));
-        tvEnabledNet.setText("Enabled: "
+        *//*tvEnabledNet.setText("Enabled: "
                 + locationManager
-                .isProviderEnabled(LocationManager.NETWORK_PROVIDER));
-    }*/
-
+                .isProviderEnabled(LocationManager.NETWORK_PROVIDER));*//*
+    }
     public void onClickLocationSettings(View view) {
         startActivity(new Intent(
                 android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-    };
+    };*/
 }

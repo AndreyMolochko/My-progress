@@ -40,6 +40,7 @@ public class SportDiary extends AppCompatActivity {
     FragmentAddExercise fragmentAddExercise;
     FragmentCalendar fragmentCalendar;
     String Tag = "ProgresDiary";
+    Boolean openFragmentAddExercise=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,10 +122,11 @@ public class SportDiary extends AppCompatActivity {
         int id =item.getItemId();
         switch (id){
             case R.id.item_calendar:
-                fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentCalendar);
-                fragmentTransaction.commit();
-                //Toast.makeText(getApplicationContext(), "123312", Toast.LENGTH_SHORT).show();
+                if(true) {
+                    fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.layoutForAddExercise, fragmentCalendar);
+                    fragmentTransaction.commit();
+                    //Toast.makeText(getApplicationContext(), "123312", Toast.LENGTH_SHORT).show();
                 /*FragmentShowExercise fragmentShowExercise = new FragmentShowExercise();
                 Log.i("dataBD","fafafafa");
                 fragmentTransaction = getFragmentManager().beginTransaction();
@@ -133,7 +135,8 @@ public class SportDiary extends AppCompatActivity {
                 Log.i("dataBD","afafafaf");
                 fragmentTransaction.commit();
                 Log.i("dataBD","124124124");*/
-                break;
+                    break;
+                }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -143,6 +146,7 @@ public class SportDiary extends AppCompatActivity {
         Bundle bundle = new Bundle();
         String str = listView.getItemAtPosition(position).toString();
         bundle.putString("titleExercise",str);
+        openFragmentAddExercise=true;
         fragmentAddExercise.setArguments(bundle);
         fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.layoutForAddExercise,fragmentAddExercise);
