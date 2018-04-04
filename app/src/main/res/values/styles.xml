@@ -38,6 +38,14 @@
         <item name="android:textColor">@color/purple500</item>
         <item name="android:textStyle">italic</item>
     </style>
+    <style name="orangeWithActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/orange500</item>
+        <item name="colorPrimaryDark">@color/orange700</item>
+        <item name="android:windowBackground">@color/orange200</item>
+        <item name="android:textColor">@color/purple500</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
     <style name="pink">
         <item name="colorPrimary">@color/pink500</item>
         <item name="colorPrimaryDark">@color/pink700</item>

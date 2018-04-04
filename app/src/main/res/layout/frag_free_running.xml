@@ -72,10 +72,9 @@
         android:id="@+id/buttonStartFinishRunning"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-
         android:layout_marginTop="8dp"
-        android:onClick="onClickSport"
         android:background="@color/grey300"
+        android:onClick="onClickSport"
         android:text="@string/start_running"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -87,16 +86,16 @@
         android:id="@+id/buttonResetTime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:background="@color/grey300"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey300"
         android:onClick="onClickSport"
         android:text="Reset time"
         android:visibility="invisible"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonStartFinishRunning" />
-
 
 
 </android.support.constraint.ConstraintLayout>

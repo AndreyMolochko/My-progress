@@ -57,7 +57,10 @@ public class FragmentCalendar extends Fragment {
                 if(i1+1<10)mMonth="0"+(i1+1);
                 else mMonth = String.valueOf(i1+1);
                 //mMonth = String.valueOf(i1+1);
-                int mDay = i2;
+                String mDay;// = i2;
+                if(i2<10)mDay="0"+(i2);
+                else mDay = String.valueOf(i2);
+                        //else mDay=
                 selectedDate = new StringBuilder().append(mDay)
                         .append(".").append(mMonth).append(".").append(mYear)
                         .append("").toString();
@@ -68,6 +71,7 @@ public class FragmentCalendar extends Fragment {
                     fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentShowExercise);
                     fragmentTransaction.commit();
                 }
+                else Toast.makeText(getActivity(),selectedDate,Toast.LENGTH_SHORT).show();
             }
         });
     }
