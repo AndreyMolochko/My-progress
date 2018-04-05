@@ -16,21 +16,25 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="purple" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/purple500</item>
         <item name="colorPrimaryDark">@color/purple700</item>
         <item name="android:windowBackground">@color/purple200</item>
     </style>
+
     <style name="red" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/red500</item>
         <item name="colorPrimaryDark">@color/red700</item>
         <item name="android:windowBackground">@color/red200</item>
     </style>
+
     <style name="green" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/green500</item>
         <item name="colorPrimaryDark">@color/green700</item>
         <item name="android:windowBackground">@color/green200</item>
     </style>
+
     <style name="orange" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/orange500</item>
         <item name="colorPrimaryDark">@color/orange700</item>
@@ -38,6 +42,7 @@
         <item name="android:textColor">@color/purple500</item>
         <item name="android:textStyle">italic</item>
     </style>
+
     <style name="orangeWithActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/orange500</item>
         <item name="colorPrimaryDark">@color/orange700</item>
@@ -51,5 +56,14 @@
         <item name="colorPrimaryDark">@color/pink700</item>
         <item name="android:windowBackground">@color/pink200</item>
     </style>
+
+    <style name="orangeWithActionBar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="orangeWithActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="orangeWithActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

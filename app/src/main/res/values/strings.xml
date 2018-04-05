@@ -91,4 +91,6 @@
         <item>Kilo</item>
         <item>Pounds</item>
     </string-array>
+    <string name="title_activity_running">RunningActivity</string>
+    <string name="reset_time">Reset time</string>
 </resources>

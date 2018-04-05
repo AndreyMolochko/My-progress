@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
     //FragmentStartRun fragmentStartRun;
     FragmentChooseRun fragmentChooseRun;
     FragmentTransaction fragmentTransaction;
-    FragmentFreeRunning fragmentFreeRunning;
+    //FragmentFreeRunning fragmentFreeRunning;
     FragmentSetDistance fragmentSetDistance;
     FragmentSport fragmentSport;
     FragmentCalculator fragmentCalculator;
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity
         //fragmentStartRun = new FragmentStartRun();
         fragmentSettings = new FragmentSettings();
         fragmentChooseRun = new FragmentChooseRun();
-        fragmentFreeRunning = new FragmentFreeRunning();
+        //fragmentFreeRunning = new FragmentFreeRunning();
         fragmentSetDistance = new FragmentSetDistance();
         fragmentSport = new FragmentSport();
         fragmentDiary = new FragmentDiary();
@@ -192,6 +192,7 @@ public class MainActivity extends AppCompatActivity
     public void onClickSport(View view) {
 
         fragmentTransaction = getFragmentManager().beginTransaction();
+        Intent intentRun = new Intent(MainActivity.this,RunningActivity.class);
         switch (view.getId()) {
             case R.id.imageButtonRun:
                 fragmentTransaction.replace(R.id.layoutSportFrag, fragmentChooseRun);
@@ -210,12 +211,15 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction.add(R.id.layoutSportFrag, fragmentSetDistance);
                 break;
             case R.id.buttonFreeRunning:
-                fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
+                //fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
+                startActivity(intentRun);
+
                 break;
             case R.id.buttonNext:
-                fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
+                //fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
+                startActivity(intentRun);
                 break;
-            case R.id.buttonStartFinishRunning:
+            /*case R.id.buttonStartFinishRunning:
                 if (!beginRunning) {
                     ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
                             setText("Finish running");
@@ -232,16 +236,16 @@ public class MainActivity extends AppCompatActivity
                             stop();
                     beginRunning = false;
                 }
-                break;
-            case R.id.buttonResetTime:
+                break;*/
+            /*case R.id.buttonResetTime:
                 Snackbar.make(view, "Reset time", Snackbar.LENGTH_LONG).
                         setAction("Yes", snackbarOnClick).show();
-                break;
+                break;*/
         }
         fragmentTransaction.commit();
     }
 
-    View.OnClickListener snackbarOnClick = new View.OnClickListener() {
+    /*View.OnClickListener snackbarOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
@@ -254,7 +258,7 @@ public class MainActivity extends AppCompatActivity
                     stop();
             beginRunning = false;
         }
-    };
+    };*/
 
     /*@SuppressLint("MissingPermission")
     @Override
