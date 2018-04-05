@@ -18,6 +18,7 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -34,9 +35,12 @@ public class RunningActivity extends AppCompatActivity {
     @BindView(R.id.buttonStartFinishRunning)
     Button buttonStartFinish;
     Boolean clickButtonStart = false;
-    Boolean firstClick = true;
+    Boolean firstCoordinat = true;
     private LocationManager locationManager;
     private long lastPause = SystemClock.elapsedRealtime();
+    Coordinates coordinates;
+    double x1, x2, y1, y2;
+    double answer = 0;
 
 
     @Override
@@ -110,13 +114,13 @@ public class RunningActivity extends AppCompatActivity {
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                1000 * 10, 10, locationListener);
+                1000 * 2, 2, locationListener);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            
+
             return;
         }
         locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER, 1000 * 2, 10,
+                LocationManager.NETWORK_PROVIDER, 1000 * 2, 2,
                 locationListener);
         //checkEnabled();
     }
@@ -124,7 +128,21 @@ public class RunningActivity extends AppCompatActivity {
     private LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
-            show(location);
+            //show(location);
+            if(firstCoordinat){
+                firstCoordinat=false;
+                x1=location.getLongitude();
+                y1=location.getLatitude();
+            }
+            x2 = location.getLongitude();
+            y2 = location.getLatitude();
+            coordinates = new Coordinates(x1,y1,x2,y2);
+
+            answer += coordinates.getConvertCoordinates();
+            String formattedDouble = new DecimalFormat("#0.00").format(answer);
+            x1 = x2;
+            y1 = y2;
+            distance.setText(String.valueOf(formattedDouble));
         }
 
         @Override
@@ -146,7 +164,7 @@ public class RunningActivity extends AppCompatActivity {
     };
 
     private void show(Location location){
-        distance.setText(formatLocation(location));
+        //distance.setText(formatLocation(location));
     }
 
     private String formatLocation(Location location) {
@@ -157,5 +175,4 @@ public class RunningActivity extends AppCompatActivity {
                 location.getLatitude(), location.getLongitude(), new Date(
                         location.getTime()));
     }
-
 }
