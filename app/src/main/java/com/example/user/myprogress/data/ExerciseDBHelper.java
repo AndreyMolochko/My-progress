@@ -19,7 +19,6 @@ public class ExerciseDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        Log.i("dataBD","3");
             String SQL_CREATE_EXERCISES_NAME = "CREATE TABLE " + ExerciseContract.ExerciseEntry.TABLE_NAME
                     +" ("+ ExerciseContract.ExerciseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + ExerciseContract.ExerciseEntry.COLUMN_NAME + " TEXT NOT NULL, "
@@ -29,7 +28,6 @@ public class ExerciseDBHelper extends SQLiteOpenHelper {
                     + ExerciseContract.ExerciseEntry.COLUMN_REP + " INTEGER NOT NULL, "
                     + ExerciseContract.ExerciseEntry.COLUMN_DATE + " TEXT NOT NULL );";
             sqLiteDatabase.execSQL(SQL_CREATE_EXERCISES_NAME);
-        Log.i("dataBD","4");
     }
 
     @Override

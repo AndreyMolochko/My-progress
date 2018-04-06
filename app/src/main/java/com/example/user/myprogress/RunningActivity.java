@@ -1,7 +1,9 @@
 package com.example.user.myprogress;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -18,7 +20,11 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.myprogress.data.RunContract;
+import com.example.user.myprogress.data.RunDBHelper;
+
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -41,6 +47,10 @@ public class RunningActivity extends AppCompatActivity {
     Coordinates coordinates;
     double x1, x2, y1, y2;
     double answer = 0;
+    String time;
+    String date;
+    int distanse;
+    private RunDBHelper runDBHelper;
 
 
     @Override
@@ -51,6 +61,7 @@ public class RunningActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        runDBHelper = new RunDBHelper(this);
         //chronometer.stop();
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +149,7 @@ public class RunningActivity extends AppCompatActivity {
             y2 = location.getLatitude();
             coordinates = new Coordinates(x1,y1,x2,y2);
 
-            answer += coordinates.getConvertCoordinates();
+            answer += coordinates.getConvertCoordinates()*60;
             String formattedDouble = new DecimalFormat("#0.00").format(answer);
             x1 = x2;
             y1 = y2;
@@ -175,4 +186,16 @@ public class RunningActivity extends AppCompatActivity {
                 location.getLatitude(), location.getLongitude(), new Date(
                         location.getTime()));
     }
+
+    public void addRunsDB(String time,int distanse, String date){
+        SQLiteDatabase db = runDBHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(RunContract.RunEntry.COLUMN_TIME,time);
+        contentValues.put(RunContract.RunEntry.COLUMN_DISTANCE,distanse);
+        contentValues.put(RunContract.RunEntry.COLUMN_DATE,date);
+        long newRowId = db.insert(RunContract.RunEntry.TABLE_NAME,null,contentValues);
+    }
+
+       
+
 }
