@@ -49,7 +49,7 @@ public class FragmentSetDistance extends Fragment implements View.OnClickListene
                 try {
                     distance=Integer.parseInt(editTextDistance.getEditableText().toString());
                     if(distance>0) {
-                        intentRun.putExtra(getString(R.string.gettingDistance),distance);
+                        intentRun.putExtra("getDistance",distance);
                         startActivity(intentRun);
                     }
                     else Toast.makeText(getActivity(),getString(R.string.bigger_number_zero),Toast.LENGTH_SHORT).show();

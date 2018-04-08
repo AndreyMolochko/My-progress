@@ -69,7 +69,8 @@ public class RunningActivity extends AppCompatActivity {
         runDBHelper = new RunDBHelper(this);
         data = new Data();
         Bundle extras = getIntent().getExtras();
-        distance.setText(extras.getString("getDistance").toString());
+        
+        distance.setText(String.valueOf(extras.getInt("getDistance")));
         //chronometer.stop();
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
