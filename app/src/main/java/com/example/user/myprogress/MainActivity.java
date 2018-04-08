@@ -28,7 +28,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.myprogress.Settings.FragmentSettings;
 
@@ -41,12 +43,7 @@ import butterknife.ButterKnife;
 //git push -u origin master
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    /*TextView tvEnabledGPS;
-    TextView tvStatusGPS;
-    TextView tvLocationGPS;
-    TextView tvEnabledNet;
-    TextView tvStatusNet;
-    TextView tvLocationNet;*/
+
     TextView textViewGPS;
     //FragmentStartRun fragmentStartRun;
     FragmentChooseRun fragmentChooseRun;
@@ -59,7 +56,9 @@ public class MainActivity extends AppCompatActivity
     FragmentSettings fragmentSettings;
     FragmentDiary fragmentDiary;
     FragmentCalculatorBenchPress fragmentCalculatorBenchPress;
+    EditText editTextDistance;
     Boolean beginRunning;
+    //int distance;
 
 
     public LocationManager locationManager;
@@ -78,13 +77,8 @@ public class MainActivity extends AppCompatActivity
         initActionBar();
         initFragments();
         beginRunning = false;
-        //textViewGPS = (TextView) findViewById(R.id.textViewTestingGPS);
-        /*tvEnabledGPS = (TextView) findViewById(R.id.tvEnabledGPS);
-        tvStatusGPS = (TextView) findViewById(R.id.tvStatusGPS);
-        tvLocationGPS = (TextView) findViewById(R.id.tvLocationGPS);
-        tvEnabledNet = (TextView) findViewById(R.id.tvEnabledNet);
-        tvStatusNet = (TextView) findViewById(R.id.tvStatusNet);
-        tvLocationNet = (TextView) findViewById(R.id.tvLocationNet);*/
+        editTextDistance = (EditText)findViewById(R.id.editTextDistance);
+
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
@@ -215,106 +209,22 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intentRun);
 
                 break;
-            case R.id.buttonNext:
+            //case R.id.buttonNext:
                 //fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
-                startActivity(intentRun);
-                break;
-            /*case R.id.buttonStartFinishRunning:
-                if (!beginRunning) {
-                    ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
-                            setText("Finish running");
-                    ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
-                            start();
-                    beginRunning = true;
-                    ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonResetTime)).
-                            setVisibility(View.VISIBLE);
 
-                } else {
-                    ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
-                            setText("Start running");
-                    ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
-                            stop();
-                    beginRunning = false;
-                }
-                break;*/
-            /*case R.id.buttonResetTime:
-                Snackbar.make(view, "Reset time", Snackbar.LENGTH_LONG).
-                        setAction("Yes", snackbarOnClick).show();
-                break;*/
+
+                    //distance=Integer.parseInt(editTextDistance.getEditableText().toString());
+
+                    //intentRun.putExtra(getString(R.string.gettingDistance),distance);
+                    //startActivity(intentRun);
+
+                //else Toast.makeText(getApplicationContext(),R.string.incorrectData,Toast.LENGTH_SHORT).show();
+
+                //break;
+
         }
         fragmentTransaction.commit();
     }
 
-    /*View.OnClickListener snackbarOnClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
-                    setBase(SystemClock.elapsedRealtime());
-            ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonStartFinishRunning)).
-                    setText("Start running");
-            ((Button) fragmentFreeRunning.getView().findViewById(R.id.buttonResetTime)).
-                    setVisibility(View.INVISIBLE);
-            ((Chronometer) fragmentFreeRunning.getView().findViewById(R.id.chronometerForRun)).
-                    stop();
-            beginRunning = false;
-        }
-    };*/
 
-    /*@SuppressLint("MissingPermission")
-    @Override
-    protected void onResume() {
-        super.onResume();
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                1000 * 10, 10, locationListener);
-        locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER, 1000 * 10, 10,
-                locationListener);
-        checkEnabled();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        locationManager.removeUpdates(locationListener);
-    }
-
-    private LocationListener locationListener = new LocationListener() {
-
-        @Override
-        public void onLocationChanged(Location location) {
-            //showLocation(location);
-        }
-
-        @Override
-        public void onProviderDisabled(String provider) {
-            checkEnabled();
-        }
-
-        @Override
-        public void onProviderEnabled(String provider) {
-            checkEnabled();
-            //showLocation(locationManager.getLastKnownLocation(provider));
-        }
-
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-            if (provider.equals(LocationManager.GPS_PROVIDER)) {
-               // tvStatusGPS.setText("Status: " + String.valueOf(status));
-            } else if (provider.equals(LocationManager.NETWORK_PROVIDER)) {
-                //tvStatusNet.setText("Status: " + String.valueOf(status));
-            }
-        }
-    };
-    private void checkEnabled() {
-        textViewGPS.setText("Enabled: "
-                + locationManager
-                .isProviderEnabled(LocationManager.GPS_PROVIDER));
-        *//*tvEnabledNet.setText("Enabled: "
-                + locationManager
-                .isProviderEnabled(LocationManager.NETWORK_PROVIDER));*//*
-    }
-    public void onClickLocationSettings(View view) {
-        startActivity(new Intent(
-                android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-    };*/
 }

@@ -20,7 +20,7 @@ public class RunDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String SQL_CREATE_EXERCISES_NAME = "CREATE TABLE " + RunContract.RunEntry.TABLE_NAME
                 +" ("+ RunContract.RunEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + RunContract.RunEntry.COLUMN_TIME + " TEXT NOT NULL, "
+                + RunContract.RunEntry.COLUMN_TIME + " INTEGER NOT NULL, "
                 + RunContract.RunEntry.COLUMN_DISTANCE + " INTEGER NOT NULL, "
                 + RunContract.RunEntry.COLUMN_DATE + " TEXT NOT NULL );";
         sqLiteDatabase.execSQL(SQL_CREATE_EXERCISES_NAME);

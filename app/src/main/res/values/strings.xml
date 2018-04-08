@@ -94,4 +94,8 @@
     <string name="title_activity_running">RunningActivity</string>
     <string name="reset_time">Reset time</string>
     <string name="turn_gps_internet">Turn on data transfer</string>
+    <string name="settings">Settings</string>
+    <string name="enter_the_distance">Enter the distance</string>
+    <string name="gettingDistance">getDistance</string>
+    <string name="bigger_number_zero">Enter bigger number then 0</string>
 </resources>

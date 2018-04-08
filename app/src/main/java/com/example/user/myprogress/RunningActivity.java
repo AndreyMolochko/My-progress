@@ -3,6 +3,7 @@ package com.example.user.myprogress;
 import android.Manifest;
 import android.content.ContentValues;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.location.LocationListener;
@@ -14,12 +15,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.myprogress.Settings.Data;
+import com.example.user.myprogress.data.ExerciseContract;
 import com.example.user.myprogress.data.RunContract;
 import com.example.user.myprogress.data.RunDBHelper;
 
@@ -47,10 +51,11 @@ public class RunningActivity extends AppCompatActivity {
     Coordinates coordinates;
     double x1, x2, y1, y2;
     double answer = 0;
-    String time;
+    int time;
     String date;
     int distanse;
     private RunDBHelper runDBHelper;
+    Data data;
 
 
     @Override
@@ -62,6 +67,9 @@ public class RunningActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         runDBHelper = new RunDBHelper(this);
+        data = new Data();
+        Bundle extras = getIntent().getExtras();
+        distance.setText(extras.getString("getDistance").toString());
         //chronometer.stop();
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +86,7 @@ public class RunningActivity extends AppCompatActivity {
         if (!clickButtonStart) {
             buttonStartFinish.setText(R.string.finish_running);
             clickButtonStart = true;
+            //displayDatabaseInfo();
             chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - lastPause);
             chronometer.start();
             buttonResetTime.setVisibility(View.VISIBLE);
@@ -105,6 +114,9 @@ public class RunningActivity extends AppCompatActivity {
             buttonStartFinish.setText(R.string.start_running);
             buttonResetTime.setVisibility(View.INVISIBLE);
             chronometer.stop();
+            time = getTimeSeconds(chronometer);
+            date = data.getDate();
+            addRunsDB(time,100,date);
             clickButtonStart = false;
         }
     };
@@ -187,7 +199,7 @@ public class RunningActivity extends AppCompatActivity {
                         location.getTime()));
     }
 
-    public void addRunsDB(String time,int distanse, String date){
+    public void addRunsDB(int time,int distanse, String date){
         SQLiteDatabase db = runDBHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(RunContract.RunEntry.COLUMN_TIME,time);
@@ -196,6 +208,11 @@ public class RunningActivity extends AppCompatActivity {
         long newRowId = db.insert(RunContract.RunEntry.TABLE_NAME,null,contentValues);
     }
 
-       
+    public int getTimeSeconds(Chronometer chronometer){
+        long a= SystemClock.elapsedRealtime()-chronometer.getBase();
+        int answer = (int)a/1000;
+        return answer;
+    }
+
 
 }

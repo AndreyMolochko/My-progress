@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">My progress</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Настройки</string>
+    <string name="provider_gps">GPS</string>
+    <string name="provider_network">Сеть</string>
+    <string name="location_settings">Локальные настройки</string>
+    <string name="sport">Спорт</string>
+    <string name="start_jogging">Начало бега</string>
+    <string name="finish_running">Закончить пробежку</string>
+    <string name="start_running">Начать бег</string>
+    <string name="distance">Дистанция:</string>
+    <string name="time">Время:</string>
+    <string name="next">Следующее</string>
+    <string name="free_running">Свободная пробежка</string>
+    <string name="set_distance">Установить дистанцию</string>
+    <string name="growth">Рост:</string>
+    <string name="waist">Талия:</string>
+    <string name="neck">Шея:</string>
+    <string name="thigh">Талия:</string>
+    <string name="show_result">Показать результат</string>
+    <string name="weight">Вес:</string>
+    <string name="title_activity_main2">Бег</string>
+    <string name="weightBarbell">Вес</string>
+    <string name="reps">Повторения</string>
+    <string name="set">Подход</string>
+    <string name="add_set">Добавить подход</string>
+    <string name="complete_exercise">Завершить упражнение</string>
+    <string name="sex">Пол:</string>
+    <string name="bar_weight">Вес штанги</string>
+    <string name="calculate">Расчитать</string>
+    <string name="incorrectData">Неверные данные!</string>
+    <string name="search">Поиск</string>
+    <string name="run">Бег</string>
+    <string name="strength_exercises">Силовые упражнения</string>
+    <string name="calculator_bench_press">Расчитать жим лёжа</string>
+    <string name="fat_calculator">Калькулятор жира</string>
+    <string name="support">Поддержка</string>
+    <string name="language">Язык</string>
+    <string name="change_theme">Изменить тему</string>
+    <string name="russian">Русский</string>
+    <string name="english">English</string>
+    <string name="contact_support">Если вы нашли некоторые ошибки в работе приложения или у вас есть идеи, которые помогут сделать это приложение лучше, то свяжитесь со мной</string>
+    <string name="blue">Голубой</string>
+    <string name="purple">Фиолетовый</string>
+    <string name="red">Красный</string>
+    <string name="set_1">Подход 1</string>
+    >
+    <string-array name="array_exercises">
+        <item>Становая тяга</item>
+        <item>Тяга штанги в наклоне</item>
+        <item>Подтягивания</item>
+        <item>Жим штанги лёжа на горизонтальной скамье</item>
+        <item>Жим штанги лёжа на наклонной скамье</item>
+        <item>Жим лёжа гантелей на горизонтальной скамье</item>
+        <item>Жим лёжа гантелей на наклонной скамье</item>
+        <item>Отжимания</item>
+        <item>Отжимания на брусьях</item>
+        <item>Подтягивание (обратный хват)</item>
+        <item>Подъём на бицепс штанги стоя</item>
+        <item>Подъём на бицепс гантелей стоя</item>
+        <item>Подъём на бицепс гантелей сидя</item>
+        <item>"Молотки"</item>
+        <item>Подъём на бицепс штанги (обратный хват)</item>
+        <item>Жим штанги лёжа узким хватом</item>
+        <item>Французский жим</item>
+        <item>Жим армейский сидя</item>
+        <item>Жим армейски стоя</item>
+        <item>Жим армейский в Смите</item>
+        <item>Жим гантелей стоя</item>
+        <item>Жим гантелей сидя</item>
+        <item>Скручивания</item>
+        <item>Подъем ног в висе</item>
+        <item>Выпады с гантелями</item>
+        <item>Выпады с штангой</item>
+        <item>Приседания со штангой</item>
+        <item>Фронтальные приседания</item>
+        <item>Скрёстные выпады</item>
+        <item>Жим ногами</item>
+        <item>Гиперэкстензия</item>
+        <item>Тяга гантелей на наклонной скамье</item>
+        <item>Тяга гантелей на горизонтальной скамье</item>
+        <item>Подъёмы на икры</item>
+        <item>Рывок штанги</item>
+        <item>Толчок штанги</item>
+    </string-array>
+    <string-array name="typeOfWeight">
+        <item>Кг</item>
+        <item>Фунт</item>
+    </string-array>
+    <string name="title_activity_running">RunningActivity</string>
+    <string name="reset_time">Обновить время</string>
+    <string name="turn_gps_internet">Включите передачу данных</string>
+    <string name="settings">Настройки</string>
+    <string name="enter_the_distance">Введите дистанцию</string>
+    <string name="bigger_number_zero">Введите число больше 0</string>
+</resources>
