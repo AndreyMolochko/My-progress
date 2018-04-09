@@ -86,6 +86,10 @@
         <item>Подъёмы на икры</item>
         <item>Рывок штанги</item>
         <item>Толчок штанги</item>
+        <item>Жим медленно опуская</item>
+        <item>Жим быстрый</item>
+        <item>Подъём гантелей перед собой</item>
+        <item>Жим с паузой</item>
     </string-array>
     <string-array name="typeOfWeight">
         <item>Кг</item>
@@ -97,4 +101,6 @@
     <string name="settings">Настройки</string>
     <string name="enter_the_distance">Введите дистанцию</string>
     <string name="bigger_number_zero">Введите число больше 0</string>
+    <string name="results">Результаты</string>
+
 </resources>

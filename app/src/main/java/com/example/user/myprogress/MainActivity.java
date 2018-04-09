@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.buttonFreeRunning:
                 //fragmentTransaction.replace(R.id.layoutSportFrag, fragmentFreeRunning);
+                intentRun.putExtra("getDistance",-1);
                 startActivity(intentRun);
 
                 break;

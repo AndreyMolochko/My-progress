@@ -16,6 +16,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -57,6 +59,12 @@ public class RunningActivity extends AppCompatActivity {
     private RunDBHelper runDBHelper;
     Data data;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //MenuInflater inflater = getMenuInflater();
+        getMenuInflater().inflate(R.menu.menu_run, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +77,7 @@ public class RunningActivity extends AppCompatActivity {
         runDBHelper = new RunDBHelper(this);
         data = new Data();
         Bundle extras = getIntent().getExtras();
-        
+
         distance.setText(String.valueOf(extras.getInt("getDistance")));
         //chronometer.stop();
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

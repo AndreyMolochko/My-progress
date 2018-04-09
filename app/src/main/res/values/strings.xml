@@ -50,42 +50,46 @@
     <string name="set_1">Set 1</string>
     >
     <string-array name="array_exercises">
-        <item>Становая тяга</item>
-        <item>Тяга штанги в наклоне</item>
-        <item>Подтягивания</item>
-        <item>Жим штанги лёжа на горизонтальной скамье</item>
-        <item>Жим штанги лёжа на наклонной скамье</item>
-        <item>Жим лёжа гантелей на горизонтальной скамье</item>
-        <item>Жим лёжа гантелей на наклонной скамье</item>
-        <item>Отжимания</item>
-        <item>Отжимания на брусьях</item>
-        <item>Подтягивание (обратный хват)</item>
-        <item>Подъём на бицепс штанги стоя</item>
-        <item>Подъём на бицепс гантелей стоя</item>
-        <item>Подъём на бицепс гантелей сидя</item>
-        <item>"Молотки"</item>
-        <item>Подъём на бицепс штанги (обратный хват)</item>
-        <item>Жим штанги лёжа узким хватом</item>
-        <item>Французский жим</item>
-        <item>Жим армейский сидя</item>
-        <item>Жим армейски стоя</item>
-        <item>Жим армейский в Смите</item>
-        <item>Жим гантелей стоя</item>
-        <item>Жим гантелей сидя</item>
-        <item>Скручивания</item>
-        <item>Подъем ног в висе</item>
-        <item>Выпады с гантелями</item>
-        <item>Выпады с штангой</item>
-        <item>Приседания со штангой</item>
-        <item>Фронтальные приседания</item>
-        <item>Скрёстные выпады</item>
-        <item>Жим ногами</item>
-        <item>Гиперэкстензия</item>
-        <item>Тяга гантелей на наклонной скамье</item>
-        <item>Тяга гантелей на горизонтальной скамье</item>
-        <item>Подъёмы на икры</item>
-        <item>Рывок штанги</item>
-        <item>Толчок штанги</item>
+                <item> Deadlift </ item>
+                <item> Rod in slope </ item>
+                <item> Pull-ups </ item>
+                <item> Bench Pressing on a Horizontal Bench </ item>
+                <item> Bench Pressing on an Inclined Bench </ item>
+                <item> Pressing dumbbells on a horizontal bench </ item>
+                <item> Pressing dumbbells on an incline bench </ item>
+                <item> Push-ups </ item>
+                <item> Push-ups on uneven bars </ item>
+                <item> Pull-up (reverse grip) </ item>
+                <item> Raising the biceps of a rod standing </ item>
+                <item> Dumbbell Lifting Standing </ item>
+                <item> Dumbbell Lifting Seated Sitting </ item>
+                <item> "Hammers" </ item>
+                <item> Lifting on the barbell of the rod (back grip) </ item>
+                <item> Bench Pressing with Narrow Grip </ item>
+                <item> French bench </ item>
+                <item> Army sitting sitting </ item>
+                <item> Army standing stand </ item>
+                <item> Army Armory in Smith </ item>
+                <item> Dumbbell presses standing </ item>
+                <item> Dumbbell Seated Press </ item>
+                <item> Twists </ item>
+                <item> Lifting the legs in the vise </ item>
+                <item> Dumbbell Attacks </ item>
+                <item> Barrage attacks </ item>
+                <item> Squats with a bar </ item>
+                <item> Front squats </ item>
+                <item> Creeping attacks </ item>
+                <item> Press with your feet </ item>
+                <item> Hyperextension </ item>
+                <item> Traction of dumbbells on an incline bench </ item>
+                <item> Dumbbell pulling on a horizontal bench </ item>
+                <item> Calf Rises </ item>
+                <item> Boom jerk </ item>
+                <item> Boom thrust </ item>
+                <item> Pressing slowly down </ item>
+                <item> Press fast </ item>
+                <item> Lifting dumbbells in front of you </ item>
+                <item> Press with a pause </ item>
     </string-array>
     <string-array name="typeOfWeight">
         <item>Kilo</item>
@@ -98,4 +102,6 @@
     <string name="enter_the_distance">Enter the distance</string>
     <string name="gettingDistance">getDistance</string>
     <string name="bigger_number_zero">Enter bigger number then 0</string>
+    <string name="results">Results</string>
+    <string name="number_set">Set</string>
 </resources>

@@ -83,73 +83,6 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
         spinnerTypeWeight.setAdapter(adapter);
     }
 
-    private void displayDatabaseInfo(){
-        Log.i("dataBD","1");
-        SQLiteDatabase db = mDBHelper.getReadableDatabase();
-        Log.i("dataBD","after");
-        String [] projection  ={
-                ExerciseContract.ExerciseEntry._ID,
-                ExerciseContract.ExerciseEntry.COLUMN_NAME,
-                ExerciseContract.ExerciseEntry.COLUMN_WEIGHT,
-                ExerciseContract.ExerciseEntry.COLUMN_TYPE,
-                ExerciseContract.ExerciseEntry.COLUMN_SET,
-                ExerciseContract.ExerciseEntry.COLUMN_REP,
-                ExerciseContract.ExerciseEntry.COLUMN_DATE
-        };
-        String selection = ExerciseContract.ExerciseEntry.COLUMN_DATE + "=?";
-        String[] selectionArgs = {"14.03.2018"};
-
-        Cursor cursor = db.query(
-                ExerciseContract.ExerciseEntry.TABLE_NAME,
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-
-        try{
-            textViewSet.setText("Таблица содержит " + cursor.getCount() + " гостей.\n\n");
-            textViewSet.append(ExerciseContract.ExerciseEntry._ID+" - "
-                    + " - "+ExerciseContract.ExerciseEntry.COLUMN_NAME+" - "+
-                    ExerciseContract.ExerciseEntry.COLUMN_WEIGHT+" - "+
-                    ExerciseContract.ExerciseEntry.COLUMN_TYPE+" - "+
-                    ExerciseContract.ExerciseEntry.COLUMN_SET+" - "+
-                    ExerciseContract.ExerciseEntry.COLUMN_REP+" - "+
-                    ExerciseContract.ExerciseEntry.COLUMN_DATE+ "\n"
-            );
-            int idIndex = cursor.getColumnIndex(ExerciseContract.ExerciseEntry._ID);
-            int idName = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_NAME);
-            int idWeight = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_WEIGHT);
-            int idType = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_TYPE);
-            int idSet = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_SET);
-            int idRep = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_REP);
-            int idDate = cursor.getColumnIndex(ExerciseContract.ExerciseEntry.COLUMN_DATE);
-            while(cursor.moveToNext()){
-                int ind = cursor.getInt(idIndex);
-                int typeInd = cursor.getInt(idType);
-                int setInd = cursor.getInt(idSet);
-                int repInd = cursor.getInt(idRep);
-                String nameInd=cursor.getString(idName);
-                String dateInd=cursor.getString(idDate);
-                double weightInd = cursor.getDouble(idWeight);
-                String valWeigth = String.valueOf(weightInd);
-                textViewSet.append(ind+
-                        nameInd+" - " +
-                        valWeigth+" - " +
-                        typeInd+" - " +
-                        setInd+" - " +
-                        repInd+" - " +
-                        dateInd
-                );
-            }
-            Log.i("dataBD","toasta");
-        }
-        finally {
-            cursor.close();
-            Log.i("dataBD","toastFinish");
-        }
-    }
 
     private void addExercise(){
         SQLiteDatabase db = mDBHelper.getWritableDatabase();
@@ -185,7 +118,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
             case R.id.buttonAddSet:if(getDataView()){counterSet++;
                 addExercise();
                 //Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
-                textViewSet.setText("Set "+(counterSet+1));
+                textViewSet.setText(getString(R.string.number_set)+(counterSet+1));
                 }
                 else {
                 Toast.makeText(getActivity(), R.string.incorrectData, Toast.LENGTH_SHORT).show();
@@ -194,7 +127,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
 
                 break;
             case R.id.buttonCompleteExercise:counterSet=0;
-                textViewSet.setText("Set "+(counterSet+1));
+                textViewSet.setText(getString(R.string.number_set)+(counterSet+1));
                 break;
         }
     }
