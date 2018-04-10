@@ -1,8 +1,15 @@
 package com.example.user.myprogress;
 
 import android.Manifest;
+import android.app.FragmentTransaction;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
@@ -13,11 +20,13 @@ import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -56,14 +65,30 @@ public class RunningActivity extends AppCompatActivity {
     int time;
     String date;
     int distanse;
+    Boolean finishRun;
     private RunDBHelper runDBHelper;
     Data data;
+    FragmentRunResult fragmentRunResult;
+    FragmentTransaction fragmentTransaction;
+    Intent notificationIntent;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //MenuInflater inflater = getMenuInflater();
         getMenuInflater().inflate(R.menu.menu_run, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        switch (item.getItemId()){
+            case R.id.item_run_result:fragmentTransaction.replace(R.id.linearDistance,fragmentRunResult);
+            fragmentTransaction.commit();
+            return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -77,8 +102,12 @@ public class RunningActivity extends AppCompatActivity {
         runDBHelper = new RunDBHelper(this);
         data = new Data();
         Bundle extras = getIntent().getExtras();
-
-        distance.setText(String.valueOf(extras.getInt("getDistance")));
+        fragmentRunResult = new FragmentRunResult();
+        distanse=extras.getInt("getDistance");
+        if(distanse>0)distance.setText(String.valueOf(answer)+" / "+String.valueOf(distanse) + " M");
+        else distance.setText(String.valueOf(answer)+" M");
+        notificationIntent = new Intent(this,MainActivity.class);
+        finishRun=false;
         //chronometer.stop();
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +154,10 @@ public class RunningActivity extends AppCompatActivity {
             chronometer.stop();
             time = getTimeSeconds(chronometer);
             date = data.getDate();
-            addRunsDB(time,100,date);
+            if(distanse>0){
+                addRunsDB(getTimeSeconds(chronometer),distanse,data.getDate());
+            }
+            else addRunsDB(getTimeSeconds(chronometer),(int)answer,data.getDate());
             clickButtonStart = false;
         }
     };
@@ -161,20 +193,33 @@ public class RunningActivity extends AppCompatActivity {
         @Override
         public void onLocationChanged(Location location) {
             //show(location);
-            if(firstCoordinat){
-                firstCoordinat=false;
-                x1=location.getLongitude();
-                y1=location.getLatitude();
-            }
-            x2 = location.getLongitude();
-            y2 = location.getLatitude();
-            coordinates = new Coordinates(x1,y1,x2,y2);
+            if (!finishRun) {
+                if(firstCoordinat){
+                    firstCoordinat=false;
+                    x1=location.getLongitude();
+                    y1=location.getLatitude();
+                }
+                x2 = location.getLongitude();
+                y2 = location.getLatitude();
+                coordinates = new Coordinates(x1,y1,x2,y2);
 
-            answer += coordinates.getConvertCoordinates()*60;
-            String formattedDouble = new DecimalFormat("#0.00").format(answer);
-            x1 = x2;
-            y1 = y2;
-            distance.setText(String.valueOf(formattedDouble));
+                answer += coordinates.getConvertCoordinates()*30;
+                Log.i("runnnn",String.valueOf(answer));
+                String formattedDouble = new DecimalFormat("#0.00").format(answer);
+                x1 = x2;
+                y1 = y2;
+                if(distanse>0){
+                    if(answer>distanse){
+                        addRunsDB(getTimeSeconds(chronometer),distanse,data.getDate());
+                        distance.setText(String.valueOf(distanse)+" / "+String.valueOf(distanse) + " M");
+                        chronometer.stop();
+                        setNotification(String.valueOf(getTimeSeconds(chronometer)),String.valueOf(distanse));
+                        finishRun=true;
+                    }
+                    else distance.setText(String.valueOf(formattedDouble)+" / "+String.valueOf(distanse) + " M");
+                }
+                else distance.setText(String.valueOf(formattedDouble)+ " M");
+            }
         }
 
         @Override
@@ -221,6 +266,38 @@ public class RunningActivity extends AppCompatActivity {
         long a= SystemClock.elapsedRealtime()-chronometer.getBase();
         int answer = (int)a/1000;
         return answer;
+    }
+
+    public void setNotification(String time, String path){
+
+        PendingIntent contentIntent = PendingIntent.getActivity(this,
+                0, notificationIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        Resources res = this.getResources();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setDefaults(Notification.DEFAULT_ALL);
+        builder.setContentIntent(contentIntent)
+                // обязательные настройки
+                .setSmallIcon(R.drawable.ic_action_run)
+                //.setContentTitle(res.getString(R.string.notifytitle)) // Заголовок уведомления
+                .setContentTitle(getString(R.string.finish_running))
+                //.setContentText(res.getString(R.string.notifytext))
+                .setContentText(getString(R.string.your_result)+" "+getString(R.string.time)+" "+time
+                        +" "+ getString(R.string.distance)+" "+path) // Текст уведомления
+                // необязательные настройки
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.your_result)+
+                        " "+getString(R.string.time)+" "+time
+                        +" "+ getString(R.string.distance)+" "+path))
+                .setTicker(getString(R.string.ticker))
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(true); // автоматически закрыть уведомление после нажатия
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Альтернативный вариант
+        // NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify(1, builder.build());
     }
 
 

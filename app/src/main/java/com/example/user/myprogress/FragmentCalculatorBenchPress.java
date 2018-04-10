@@ -69,10 +69,11 @@ public class FragmentCalculatorBenchPress extends Fragment implements View.OnCli
 
     @Override
     public void onClick(View view) {
+        getDataView();
         switch(view.getId()){
             case R.id.buttonCalculatePressBrench:
-
-                if(getDataView()){
+                if(reps>29)Toast.makeText(getActivity(), R.string.number_reps,Toast.LENGTH_SHORT).show();
+                else if(getDataView()){
                     String formattedDouble = new DecimalFormat("#0.00").format(formula.formulaAverage(weight,reps));
                     //String str=String.valueOf(formula.formulaAverage(weight,reps));
                     textViewResult.setText(formattedDouble);

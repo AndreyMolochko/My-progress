@@ -118,7 +118,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
             case R.id.buttonAddSet:if(getDataView()){counterSet++;
                 addExercise();
                 //Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
-                textViewSet.setText(getString(R.string.number_set)+(counterSet+1));
+                textViewSet.setText(getString(R.string.number_set)+" "+(counterSet+1));
                 }
                 else {
                 Toast.makeText(getActivity(), R.string.incorrectData, Toast.LENGTH_SHORT).show();
@@ -127,7 +127,7 @@ public class FragmentAddExercise extends Fragment implements View.OnClickListene
 
                 break;
             case R.id.buttonCompleteExercise:counterSet=0;
-                textViewSet.setText(getString(R.string.number_set)+(counterSet+1));
+                textViewSet.setText(getString(R.string.number_set)+" "+(counterSet+1));
                 break;
         }
     }

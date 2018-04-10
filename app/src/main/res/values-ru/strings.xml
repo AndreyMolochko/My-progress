@@ -14,7 +14,7 @@
     <string name="start_running">Начать бег</string>
     <string name="distance">Дистанция:</string>
     <string name="time">Время:</string>
-    <string name="next">Следующее</string>
+    <string name="next">Продолжить</string>
     <string name="free_running">Свободная пробежка</string>
     <string name="set_distance">Установить дистанцию</string>
     <string name="growth">Рост:</string>
@@ -95,12 +95,16 @@
         <item>Кг</item>
         <item>Фунт</item>
     </string-array>
-    <string name="title_activity_running">RunningActivity</string>
+    <string name="title_activity_running">Пробежка</string>
     <string name="reset_time">Обновить время</string>
     <string name="turn_gps_internet">Включите передачу данных</string>
     <string name="settings">Настройки</string>
     <string name="enter_the_distance">Введите дистанцию</string>
     <string name="bigger_number_zero">Введите число больше 0</string>
     <string name="results">Результаты</string>
-
+    <string name="number_set">Подход </string>
+    <string name="number_reps">Введите число повторений меньше 29</string>
+    <string name="finish_running_notify">Пробежка окончена</string>
+    <string name="your_result">Ваш результат</string>
+    <string name="ticker">Ты сделал это!</string>
 </resources>

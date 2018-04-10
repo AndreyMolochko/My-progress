@@ -50,52 +50,52 @@
     <string name="set_1">Set 1</string>
     >
     <string-array name="array_exercises">
-                <item> Deadlift </ item>
-                <item> Rod in slope </ item>
-                <item> Pull-ups </ item>
-                <item> Bench Pressing on a Horizontal Bench </ item>
-                <item> Bench Pressing on an Inclined Bench </ item>
-                <item> Pressing dumbbells on a horizontal bench </ item>
-                <item> Pressing dumbbells on an incline bench </ item>
-                <item> Push-ups </ item>
-                <item> Push-ups on uneven bars </ item>
-                <item> Pull-up (reverse grip) </ item>
-                <item> Raising the biceps of a rod standing </ item>
-                <item> Dumbbell Lifting Standing </ item>
-                <item> Dumbbell Lifting Seated Sitting </ item>
-                <item> "Hammers" </ item>
-                <item> Lifting on the barbell of the rod (back grip) </ item>
-                <item> Bench Pressing with Narrow Grip </ item>
-                <item> French bench </ item>
-                <item> Army sitting sitting </ item>
-                <item> Army standing stand </ item>
-                <item> Army Armory in Smith </ item>
-                <item> Dumbbell presses standing </ item>
-                <item> Dumbbell Seated Press </ item>
-                <item> Twists </ item>
-                <item> Lifting the legs in the vise </ item>
-                <item> Dumbbell Attacks </ item>
-                <item> Barrage attacks </ item>
-                <item> Squats with a bar </ item>
-                <item> Front squats </ item>
-                <item> Creeping attacks </ item>
-                <item> Press with your feet </ item>
-                <item> Hyperextension </ item>
-                <item> Traction of dumbbells on an incline bench </ item>
-                <item> Dumbbell pulling on a horizontal bench </ item>
-                <item> Calf Rises </ item>
-                <item> Boom jerk </ item>
-                <item> Boom thrust </ item>
-                <item> Pressing slowly down </ item>
-                <item> Press fast </ item>
-                <item> Lifting dumbbells in front of you </ item>
-                <item> Press with a pause </ item>
+                <item> Deadlift </item>
+                <item> Rod in slope </item>
+                <item> Pull-ups </item>
+                <item> Bench Pressing on a Horizontal Bench </item>
+                <item> Bench Pressing on an Inclined Bench </item>
+                <item> Pressing dumbbells on a horizontal bench </item>
+                <item> Pressing dumbbells on an incline bench </item>
+                <item> Push-ups </item>
+                <item> Push-ups on uneven bars </item>
+                <item> Pull-up (reverse grip) </item>
+                <item> Raising the biceps of a rod standing </item>
+                <item> Dumbbell Lifting Standing </item>
+                <item> Dumbbell Lifting Seated Sitting </item>
+                <item> "Hammers" </item>
+                <item> Lifting on the barbell of the rod (back grip) </item>
+                <item> Bench Pressing with Narrow Grip </item>
+                <item> French bench </item>
+                <item> Army sitting sitting </item>
+                <item> Army standing stand </item>
+                <item> Army Armory in Smith </item>
+                <item> Dumbbell presses standing </item>
+                <item> Dumbbell Seated Press </item>
+                <item> Twists </item>
+                <item> Lifting the legs in the vise </item>
+                <item> Dumbbell Attacks </item>
+                <item> Barrage attacks </item>
+                <item> Squats with a bar </item>
+                <item> Front squats </item>
+                <item> Creeping attacks </item>
+                <item> Press with your feet </item>
+                <item> Hyperextension </item>
+                <item> Traction of dumbbells on an incline bench </item>
+                <item> Dumbbell pulling on a horizontal bench </item>
+                <item> Calf Rises </item>
+                <item> Boom jerk </item>
+                <item> Boom thrust </item>
+                <item> Pressing slowly down </item>
+                <item> Press fast </item>
+                <item> Lifting dumbbells in front of you </item>
+                <item> Press with a pause </item>
     </string-array>
     <string-array name="typeOfWeight">
         <item>Kilo</item>
         <item>Pounds</item>
     </string-array>
-    <string name="title_activity_running">RunningActivity</string>
+    <string name="title_activity_running">Running</string>
     <string name="reset_time">Reset time</string>
     <string name="turn_gps_internet">Turn on data transfer</string>
     <string name="settings">Settings</string>
@@ -103,5 +103,9 @@
     <string name="gettingDistance">getDistance</string>
     <string name="bigger_number_zero">Enter bigger number then 0</string>
     <string name="results">Results</string>
-    <string name="number_set">Set</string>
+    <string name="number_set">Set </string>
+    <string name="number_reps">Enter number of reps less 29</string>
+    <string name="finish_running_notify">Finish running</string>
+    <string name="your_result">Your result</string>
+    <string name="ticker">You did it!</string>
 </resources>
