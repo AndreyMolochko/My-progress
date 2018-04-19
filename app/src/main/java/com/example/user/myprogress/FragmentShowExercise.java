@@ -34,8 +34,6 @@ public class FragmentShowExercise extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_show_exercises,null);
         init(view);
-
-
         return  view;
     }
 

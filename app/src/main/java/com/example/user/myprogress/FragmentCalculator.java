@@ -58,11 +58,11 @@ public class FragmentCalculator extends Fragment implements View.OnClickListener
         textViewResult=(TextView)view.findViewById(R.id.textViewResult);
     }
     public void initAdapterSpinner(){
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,dataForSpinner);
+        ArrayAdapter<?> adapter =
+                ArrayAdapter.createFromResource(getActivity(), R.array.sex, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSex.setAdapter(adapter);
-        spinnerSex.setPrompt("Male");
+        //spinnerSex.setPrompt("Male");
     }
 
     @Override

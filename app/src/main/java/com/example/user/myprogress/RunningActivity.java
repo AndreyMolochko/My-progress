@@ -140,8 +140,8 @@ public class RunningActivity extends AppCompatActivity {
 
     @OnClick(R.id.buttonResetTime)
     public void onClickButtonReset(View view) {
-        Snackbar.make(view, "Reset time", Snackbar.LENGTH_LONG).
-                setAction("Yes", snackbarOnClick).show();
+        Snackbar.make(view, R.string.reset_time_snack, Snackbar.LENGTH_LONG).
+                setAction(R.string.yes, snackbarOnClick).show();
         lastPause = SystemClock.elapsedRealtime();
     }
 
@@ -155,7 +155,7 @@ public class RunningActivity extends AppCompatActivity {
             time = getTimeSeconds(chronometer);
             date = data.getDate();
             if(distanse>0){
-                addRunsDB(getTimeSeconds(chronometer),distanse,data.getDate());
+                addRunsDB(getTimeSeconds(chronometer),(int)answer,data.getDate());
             }
             else addRunsDB(getTimeSeconds(chronometer),(int)answer,data.getDate());
             clickButtonStart = false;
@@ -203,7 +203,7 @@ public class RunningActivity extends AppCompatActivity {
                 y2 = location.getLatitude();
                 coordinates = new Coordinates(x1,y1,x2,y2);
 
-                answer += coordinates.getConvertCoordinates()*30;
+                answer += coordinates.getConvertCoordinates();//*30
                 Log.i("runnnn",String.valueOf(answer));
                 String formattedDouble = new DecimalFormat("#0.00").format(answer);
                 x1 = x2;

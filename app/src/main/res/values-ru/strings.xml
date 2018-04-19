@@ -17,19 +17,19 @@
     <string name="next">Продолжить</string>
     <string name="free_running">Свободная пробежка</string>
     <string name="set_distance">Установить дистанцию</string>
-    <string name="growth">Рост:</string>
-    <string name="waist">Талия:</string>
-    <string name="neck">Шея:</string>
-    <string name="thigh">Талия:</string>
+    <string name="growth">Рост</string>
+    <string name="waist">Талия</string>
+    <string name="neck">Шея</string>
+    <string name="thigh">Бёдра</string>
     <string name="show_result">Показать результат</string>
-    <string name="weight">Вес:</string>
+    <string name="weight">Вес</string>
     <string name="title_activity_main2">Бег</string>
     <string name="weightBarbell">Вес</string>
     <string name="reps">Повторения</string>
     <string name="set">Подход</string>
     <string name="add_set">Добавить подход</string>
     <string name="complete_exercise">Завершить упражнение</string>
-    <string name="sex">Пол:</string>
+    <string name="sex">Пол</string>
     <string name="bar_weight">Вес штанги</string>
     <string name="calculate">Расчитать</string>
     <string name="incorrectData">Неверные данные!</string>
@@ -95,9 +95,13 @@
         <item>Кг</item>
         <item>Фунт</item>
     </string-array>
+    <string-array name="sex">
+        <item>Мужской</item>
+        <item>Женщина</item>
+    </string-array>
     <string name="title_activity_running">Пробежка</string>
     <string name="reset_time">Обновить время</string>
-    <string name="turn_gps_internet">Включите передачу данных</string>
+    <string name="turn_gps_internet">Включите передачу геоданных</string>
     <string name="settings">Настройки</string>
     <string name="enter_the_distance">Введите дистанцию</string>
     <string name="bigger_number_zero">Введите число больше 0</string>
@@ -107,4 +111,8 @@
     <string name="finish_running_notify">Пробежка окончена</string>
     <string name="your_result">Ваш результат</string>
     <string name="ticker">Ты сделал это!</string>
+    <string name="contact_with_support">Связаться с поддержкой</string>
+    <string name="yes">Да</string>
+    <string name="reset_time_snack">Обновить время</string>
+    <string name="arent_exercises">Нету упражнений</string>
 </resources>

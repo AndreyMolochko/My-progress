@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="8dp">
 
     <TextView
         android:id="@+id/textViewContactWithSupport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
         android:layout_marginTop="16dp"
         android:text="@string/contact_support"
         android:textSize="20dp"
@@ -21,7 +22,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Contact with support"
+        android:text="@string/contact_with_support"
         app:layout_constraintStart_toStartOf="@+id/textViewContactWithSupport"
         app:layout_constraintTop_toBottomOf="@+id/textViewContactWithSupport" />
+
+    <WebView
+        android:id="@+id/webView"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>

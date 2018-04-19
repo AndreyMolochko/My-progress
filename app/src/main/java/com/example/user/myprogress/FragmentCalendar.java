@@ -64,14 +64,15 @@ public class FragmentCalendar extends Fragment {
                 selectedDate = new StringBuilder().append(mDay)
                         .append(".").append(mMonth).append(".").append(mYear)
                         .append("").toString();
-                if(displayDatabaseInfo(selectedDate)) {Toast.makeText(getActivity(), dataExercises.get(0), Toast.LENGTH_LONG).show();
+                if(displayDatabaseInfo(selectedDate)) {
+                    //Toast.makeText(getActivity(), dataExercises.get(0), Toast.LENGTH_LONG).show();
                     Bundle bundle = new Bundle();
                     bundle.putStringArrayList("listExercises",dataExercises);
                     fragmentShowExercise.setArguments(bundle);
                     fragmentTransaction.replace(R.id.layoutForAddExercise,fragmentShowExercise);
                     fragmentTransaction.commit();
                 }
-                else Toast.makeText(getActivity(),selectedDate,Toast.LENGTH_SHORT).show();
+                else Toast.makeText(getActivity(), R.string.arent_exercises,Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -99,7 +100,7 @@ public class FragmentCalendar extends Fragment {
                 selectionArgs,
                 null,
                 null,
-                null);
+                ExerciseContract.ExerciseEntry.COLUMN_SET + " DESC");
 
         try{
             if(cursor.getCount()>0){

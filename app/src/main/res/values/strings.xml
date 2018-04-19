@@ -95,6 +95,10 @@
         <item>Kilo</item>
         <item>Pounds</item>
     </string-array>
+    <string-array name="sex">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
     <string name="title_activity_running">Running</string>
     <string name="reset_time">Reset time</string>
     <string name="turn_gps_internet">Turn on data transfer</string>
@@ -108,4 +112,9 @@
     <string name="finish_running_notify">Finish running</string>
     <string name="your_result">Your result</string>
     <string name="ticker">You did it!</string>
+    <string name="link_support">https://vk.com/andr_1999</string>
+    <string name="contact_with_support">Contact with support</string>
+    <string name="yes">Yes</string>
+    <string name="reset_time_snack">Reset time</string>
+    <string name="arent_exercises">There aren\'t exercises</string>
 </resources>

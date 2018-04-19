@@ -38,7 +38,7 @@
     <style name="orange" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/orange500</item>
         <item name="colorPrimaryDark">@color/orange700</item>
-        <item name="android:windowBackground">@color/orange200</item>
+        <item name="android:windowBackground">@color/orange100</item>
         <item name="android:textColor">@color/purple500</item>
         <item name="android:textStyle">italic</item>
     </style>
@@ -46,7 +46,7 @@
     <style name="orangeWithActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/orange500</item>
         <item name="colorPrimaryDark">@color/orange700</item>
-        <item name="android:windowBackground">@color/orange200</item>
+        <item name="android:windowBackground">@color/orange100</item>
         <item name="android:textColor">@color/purple500</item>
         <item name="android:textStyle">italic</item>
     </style>

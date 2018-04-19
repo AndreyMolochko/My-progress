@@ -126,6 +126,7 @@ public class SportDiary extends AppCompatActivity {
                     fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.layoutForAddExercise, fragmentCalendar);
                     fragmentTransaction.commit();
+                    listView.setAdapter(null);
                     break;
                 }
         }
